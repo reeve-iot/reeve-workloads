@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <NoWarn>$(NoWarn);REEVEWL0520</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Domain\Reeve.Workloads.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\fixtures\resource-names.json" CopyToOutputDirectory="PreserveNewest"
+          Link="fixtures\resource-names.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Shared\StandInProviders.cs" Link="Shared\StandInProviders.cs" />
+    <Compile Include="..\Shared\RecordingCredentialPort.cs" Link="Shared\RecordingCredentialPort.cs" />
+  </ItemGroup>
+
+</Project>

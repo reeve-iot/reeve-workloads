@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <PackageId>Reeve.Workloads.Manifest</PackageId>
+    <Description>The strict parser for a plugin's deployment manifest, its path policy and its validation errors. Nothing beyond the BCL and System.Text.Json.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+  </ItemGroup>
+
+</Project>

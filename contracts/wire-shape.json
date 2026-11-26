@@ -1,0 +1,3323 @@
+{
+  "version": 1,
+  "source": "src/Reeve.Workloads.Abstractions/Contracts",
+  "types": [
+    {
+      "name": "ConfigMapMount",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "mountPath",
+          "clr": "MountPath",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "parameter",
+          "clr": "Parameter",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "DangerousPointerAnnotation",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstallPreviewContracts.cs",
+      "properties": [
+        {
+          "wire": "explanation",
+          "clr": "Explanation",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "jsonPointer",
+          "clr": "JsonPointer",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "DeploymentManifest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "schemaVersion",
+          "clr": "SchemaVersion",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloads",
+          "clr": "Workloads",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "DiscoveredSerialDevice",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadDeviceDiscoveryContracts.cs",
+      "properties": [
+        {
+          "wire": "path",
+          "clr": "Path",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "HostRequirement",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "kind",
+          "clr": "Kind",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "HostRequirementKind",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "dbus-service",
+        "kernel-module",
+        "udev-serial",
+        "multicast"
+      ]
+    },
+    {
+      "name": "NodeLocalState",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "criticality",
+          "clr": "Criticality",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "subdir",
+          "clr": "Subdir",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "RegistryAuthType",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "values": [
+        "basic",
+        "bearer"
+      ]
+    },
+    {
+      "name": "RegistryCredential",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "authType",
+          "clr": "AuthType",
+          "kind": "ref",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "hostPattern",
+          "clr": "HostPattern",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "token",
+          "clr": "Token",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "username",
+          "clr": "Username",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "RegistryMirror",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "matchRegistry",
+          "clr": "MatchRegistry",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "mirrorRegistry",
+          "clr": "MirrorRegistry",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "RenderedWorkloadArtifactDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadArtifactContracts.cs",
+      "properties": [
+        {
+          "wire": "error",
+          "clr": "Error",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "format",
+          "clr": "Format",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "notes",
+          "clr": "Notes",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "primaryContent",
+          "clr": "PrimaryContent",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "secretOneLiner",
+          "clr": "SecretOneLiner",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "ResourceQuantities",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "cpu",
+          "clr": "Cpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "memory",
+          "clr": "Memory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "RetainedVolumeListResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadRetainedVolumeContracts.cs",
+      "properties": [
+        {
+          "wire": "items",
+          "clr": "Items",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "RetainedVolumePurgeResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadRetainedVolumeContracts.cs",
+      "properties": [
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "purgedAtUtc",
+          "clr": "PurgedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "RetainedVolumeSummary",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadRetainedVolumeContracts.cs",
+      "properties": [
+        {
+          "wire": "criticality",
+          "clr": "Criticality",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "criticalityDescription",
+          "clr": "CriticalityDescription",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginTypeId",
+          "clr": "GroupId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "resourceName",
+          "clr": "ResourceName",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "retainedAtUtc",
+          "clr": "RetainedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "size",
+          "clr": "Size",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "sourceWorkloadInstanceId",
+          "clr": "SourceWorkloadInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "volumeId",
+          "clr": "VolumeId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "SetWorkloadObserveOnlyRequest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "observeOnly",
+          "clr": "ObserveOnly",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "SetWorkloadResourcesRequest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadResourceContracts.cs",
+      "properties": [
+        {
+          "wire": "limitsCpu",
+          "clr": "LimitsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "limitsMemory",
+          "clr": "LimitsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsCpu",
+          "clr": "RequestsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsMemory",
+          "clr": "RequestsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "SetWorkloadVolumeSizeRequest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "size",
+          "clr": "Size",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "UnsupportedPodPatch",
+      "kind": "custom",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "converter": "UnsupportedPodPatchConverter"
+    },
+    {
+      "name": "UpdateWorkloadOrchestratorSettingsRequest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "settings",
+          "clr": "Settings",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "VolumeCriticality",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "cache",
+        "recoverable",
+        "critical"
+      ]
+    },
+    {
+      "name": "WorkloadArtifactResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadArtifactContracts.cs",
+      "properties": [
+        {
+          "wire": "format",
+          "clr": "Format",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "instanceId",
+          "clr": "InstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "secretsRevealed",
+          "clr": "SecretsRevealed",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloads",
+          "clr": "Workloads",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadCapability",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "NET_ADMIN",
+        "NET_RAW",
+        "SYS_ADMIN",
+        "NET_BIND_SERVICE"
+      ]
+    },
+    {
+      "name": "WorkloadCommandConflictResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "activeIntentId",
+          "clr": "ActiveIntentId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadInstanceId",
+          "clr": "WorkloadInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadDevice",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "deviceKind",
+          "clr": "DeviceKind",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "group",
+          "clr": "Group",
+          "kind": "ref",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "maxCount",
+          "clr": "MaxCount",
+          "kind": "number",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "parameter",
+          "clr": "Parameter",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadDeviceDiscoveryRequest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadDeviceDiscoveryContracts.cs",
+      "properties": [
+        {
+          "wire": "acknowledged",
+          "clr": "Acknowledged",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadDeviceDiscoveryResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadDeviceDiscoveryContracts.cs",
+      "properties": [
+        {
+          "wire": "acknowledged",
+          "clr": "Acknowledged",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "devices",
+          "clr": "Devices",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "disclosure",
+          "clr": "Disclosure",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "ok",
+          "clr": "Ok",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "ran",
+          "clr": "Ran",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadDeviceGroup",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "none",
+        "auto"
+      ]
+    },
+    {
+      "name": "WorkloadDeviceKind",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "usb-serial",
+        "gpu-render",
+        "accelerator"
+      ]
+    },
+    {
+      "name": "WorkloadDisclosure",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadDeviceDiscoveryContracts.cs",
+      "properties": [
+        {
+          "wire": "code",
+          "clr": "Code",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "label",
+          "clr": "Label",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "severity",
+          "clr": "Severity",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadDisclosureSeverity",
+      "kind": "vocabulary",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadDeviceDiscoveryContracts.cs",
+      "values": [
+        "danger",
+        "info"
+      ]
+    },
+    {
+      "name": "WorkloadEnv",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "from",
+          "clr": "From",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadEventDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "reason",
+          "clr": "Reason",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "timestampUtc",
+          "clr": "TimestampUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "type",
+          "clr": "Type",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadExtensions",
+      "kind": "custom",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/WorkloadExtensions.cs",
+      "converter": "WorkloadExtensionsConverter"
+    },
+    {
+      "name": "WorkloadHealth",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "http",
+          "clr": "Http",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "mode",
+          "clr": "Mode",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadHealthMode",
+      "kind": "custom",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/WorkloadHealthMode.cs",
+      "converter": "WorkloadHealthModeConverter"
+    },
+    {
+      "name": "WorkloadHostPath",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "mountPath",
+          "clr": "MountPath",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "parameter",
+          "clr": "Parameter",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadHttpProbe",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "livenessPath",
+          "clr": "LivenessPath",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "port",
+          "clr": "Port",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "readinessPath",
+          "clr": "ReadinessPath",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadImage",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "component",
+          "clr": "Component",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "digest",
+          "clr": "Digest",
+          "kind": "string",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "platforms",
+          "clr": "Platforms",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "ref",
+          "clr": "Ref",
+          "kind": "string",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "tag",
+          "clr": "Tag",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadInstanceDetailResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "instance",
+          "clr": "Instance",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "recentEvents",
+          "clr": "RecentEvents",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "reservedParameters",
+          "clr": "ReservedParameters",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "status",
+          "clr": "Status",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadInstanceListResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "instances",
+          "clr": "Instances",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginHealth",
+          "clr": "PluginHealth",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadInstanceSummary",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "appliedSpecHash",
+          "clr": "AppliedSpecHash",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "desiredSpecHash",
+          "clr": "DesiredSpecHash",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "kind",
+          "clr": "Kind",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "lastHealthyAtUtc",
+          "clr": "LastHealthyAtUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "observeOnly",
+          "clr": "ObserveOnly",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginTypeId",
+          "clr": "GroupId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "provisioningPercent",
+          "clr": "ProvisioningPercent",
+          "kind": "number",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "resolvedParameters",
+          "clr": "ResolvedParameters",
+          "kind": "record",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "restartCount",
+          "clr": "RestartCount",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "state",
+          "clr": "State",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "stateMessage",
+          "clr": "StateMessage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "stateReason",
+          "clr": "StateReason",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadKind",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "service",
+        "single-node",
+        "per-node",
+        "scan-per-node"
+      ]
+    },
+    {
+      "name": "WorkloadLogLineDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "atUtc",
+          "clr": "AtUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "isGapMarker",
+          "clr": "IsGapMarker",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "isRestartMarker",
+          "clr": "IsRestartMarker",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "text",
+          "clr": "Text",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadLogsResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "lines",
+          "clr": "Lines",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "providerAvailable",
+          "clr": "ProviderAvailable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "truncated",
+          "clr": "Truncated",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadManifest",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "configMapMount",
+          "clr": "ConfigMapMounts",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "displayName",
+          "clr": "DisplayName",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "env",
+          "clr": "Env",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "extensions",
+          "clr": "Extensions",
+          "kind": "ref",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "health",
+          "clr": "Health",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "hostRequirements",
+          "clr": "HostRequirements",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "image",
+          "clr": "Image",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "kind",
+          "clr": "Kind",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "network",
+          "clr": "Network",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "observability",
+          "clr": "Observability",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "parameters",
+          "clr": "Parameters",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "privileges",
+          "clr": "Privileges",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "resources",
+          "clr": "Resources",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "unsupportedPodPatch",
+          "clr": "UnsupportedPodPatch",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "volumes",
+          "clr": "Volumes",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadMetrics",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "path",
+          "clr": "Path",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "port",
+          "clr": "Port",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNetwork",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "attachments",
+          "clr": "Attachments",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "hostNetwork",
+          "clr": "HostNetwork",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "ipv6Required",
+          "clr": "Ipv6Required",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "mdns",
+          "clr": "Mdns",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "ports",
+          "clr": "Ports",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNetworkAttachmentDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNetworkAttachmentContracts.cs",
+      "properties": [
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNetworkAttachmentListResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNetworkAttachmentContracts.cs",
+      "properties": [
+        {
+          "wire": "items",
+          "clr": "Items",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "unavailableReason",
+          "clr": "UnavailableReason",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNetworkAttachmentSlot",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "parameter",
+          "clr": "Parameter",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNetworkAttachmentUnavailableReasons",
+      "kind": "vocabulary",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNetworkAttachmentContracts.cs",
+      "values": [
+        "multus-not-installed",
+        "forbidden",
+        "provider-unavailable",
+        "none-in-namespace",
+        "not-supported"
+      ]
+    },
+    {
+      "name": "WorkloadNetworkMode",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNetworkMode.cs",
+      "values": [
+        "cluster",
+        "hostNetwork",
+        "operatorNetwork"
+      ]
+    },
+    {
+      "name": "WorkloadNodeDeviceDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNodeInventoryContracts.cs",
+      "properties": [
+        {
+          "wire": "deviceKind",
+          "clr": "DeviceKind",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "devicePath",
+          "clr": "DevicePath",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "label",
+          "clr": "Label",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "nodeName",
+          "clr": "NodeName",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadNodeInventoryResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadNodeInventoryContracts.cs",
+      "properties": [
+        {
+          "wire": "devices",
+          "clr": "Devices",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "ok",
+          "clr": "Ok",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadObservability",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "metrics",
+          "clr": "Metrics",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadOrchestratorSettings",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "allowUnpinnedImages",
+          "clr": "AllowUnpinnedImages",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "mirrors",
+          "clr": "Mirrors",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "providers",
+          "clr": "Providers",
+          "kind": "record",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "reconciliationPaused",
+          "clr": "ReconciliationPaused",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadOrchestratorSettingsResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "autoDetected",
+          "clr": "AutoDetected",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "effectiveProvider",
+          "clr": "EffectiveProvider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "providers",
+          "clr": "Providers",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "settings",
+          "clr": "Settings",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadParameter",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "default",
+          "clr": "Default",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "displayName",
+          "clr": "DisplayName",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "enumLabels",
+          "clr": "EnumLabels",
+          "kind": "record",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "enumValues",
+          "clr": "EnumValues",
+          "kind": "array",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "hint",
+          "clr": "Hint",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "required",
+          "clr": "Required",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "reveals",
+          "clr": "Reveals",
+          "kind": "record",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "section",
+          "clr": "Section",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "type",
+          "clr": "Type",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "widget",
+          "clr": "Widget",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadParameterType",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "text",
+        "integer",
+        "boolean",
+        "password",
+        "enum",
+        "devicePath",
+        "nodeSelector",
+        "networkInterface",
+        "storageSize",
+        "storageClass",
+        "hostPath",
+        "networkAttachment"
+      ]
+    },
+    {
+      "name": "WorkloadParameterWidget",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "values": [
+        "select",
+        "radio"
+      ]
+    },
+    {
+      "name": "WorkloadPluginHealth",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "aggregateState",
+          "clr": "AggregateState",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "anySuspended",
+          "clr": "AnySuspended",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadPort",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "port",
+          "clr": "Port",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "protocol",
+          "clr": "Protocol",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadPreflightCheckDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstallPreviewContracts.cs",
+      "properties": [
+        {
+          "wire": "fixSnippet",
+          "clr": "FixSnippet",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "passed",
+          "clr": "Passed",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "severity",
+          "clr": "Severity",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadPreflightPreviewResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstallPreviewContracts.cs",
+      "properties": [
+        {
+          "wire": "allPassed",
+          "clr": "AllPassed",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "error",
+          "clr": "Error",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "hasBlockingError",
+          "clr": "HasBlockingError",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "ok",
+          "clr": "Ok",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloads",
+          "clr": "Workloads",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadPreflightProjection",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstallPreviewContracts.cs",
+      "properties": [
+        {
+          "wire": "allPassed",
+          "clr": "AllPassed",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "checks",
+          "clr": "Checks",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "hasBlockingError",
+          "clr": "HasBlockingError",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadPrivileges",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "callsBackendRest",
+          "clr": "CallsBackendRest",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "capabilities",
+          "clr": "Capabilities",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "devices",
+          "clr": "Devices",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "fsGroup",
+          "clr": "FsGroup",
+          "kind": "number",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "hostDbus",
+          "clr": "HostDbus",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "hostPaths",
+          "clr": "HostPaths",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "nodeLocalState",
+          "clr": "NodeLocalState",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "privileged",
+          "clr": "Privileged",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "runAsRoot",
+          "clr": "RunAsRoot",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "tunDevice",
+          "clr": "TunDevice",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadProviderId",
+      "kind": "custom",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadProviderId.cs",
+      "converter": "WorkloadProviderIdJsonConverter"
+    },
+    {
+      "name": "WorkloadProviderInfo",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "compiledIn",
+          "clr": "CompiledIn",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "displayName",
+          "clr": "DisplayName",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "unavailableReason",
+          "clr": "UnavailableReason",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadProviderProbeResult",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadOrchestratorSettings.cs",
+      "properties": [
+        {
+          "wire": "apiServerReachable",
+          "clr": "ApiServerReachable",
+          "kind": "boolean",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "canListNodes",
+          "clr": "CanListNodes",
+          "kind": "boolean",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "connectionFailed",
+          "clr": "ConnectionFailed",
+          "kind": "boolean",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "dockerApiVersion",
+          "clr": "DockerApiVersion",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "probeAvailable",
+          "clr": "ProbeAvailable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "provider",
+          "clr": "Provider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "psaEnforcementLabels",
+          "clr": "PsaEnforcementLabels",
+          "kind": "record",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "registryPullAuthResult",
+          "clr": "RegistryPullAuthResult",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "storageClasses",
+          "clr": "StorageClasses",
+          "kind": "array",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "warnings",
+          "clr": "Warnings",
+          "kind": "array",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadProviderSwitchBlockedResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "blockingInstances",
+          "clr": "BlockingInstances",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "currentProvider",
+          "clr": "CurrentProvider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "requestedProvider",
+          "clr": "RequestedProvider",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadProviderSwitchBlocker",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginTypeId",
+          "clr": "GroupId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadReservedParameterDescriptor",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstallPreviewContracts.cs",
+      "properties": [
+        {
+          "wire": "applicableModes",
+          "clr": "ApplicableModes",
+          "kind": "array",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "default",
+          "clr": "Default",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "enumValues",
+          "clr": "EnumValues",
+          "kind": "array",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "hint",
+          "clr": "Hint",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "name",
+          "clr": "Name",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "providerApplicable",
+          "clr": "ProviderApplicable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "renderable",
+          "clr": "Renderable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "type",
+          "clr": "Type",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadResourceValues",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadResourceContracts.cs",
+      "properties": [
+        {
+          "wire": "limitsCpu",
+          "clr": "LimitsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "limitsMemory",
+          "clr": "LimitsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsCpu",
+          "clr": "RequestsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsMemory",
+          "clr": "RequestsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadResources",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "limits",
+          "clr": "Limits",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requests",
+          "clr": "Requests",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadResourcesResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadResourceContracts.cs",
+      "properties": [
+        {
+          "wire": "declared",
+          "clr": "Declared",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "effective",
+          "clr": "Effective",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "overrides",
+          "clr": "Overrides",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "requestsCpuApplicable",
+          "clr": "RequestsCpuApplicable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadStatusChangedEvent",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginTypeId",
+          "clr": "GroupId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "state",
+          "clr": "State",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "stateMessage",
+          "clr": "StateMessage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "stateReason",
+          "clr": "StateReason",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadStatusSnapshot",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "observedImage",
+          "clr": "ObservedImage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "phase",
+          "clr": "Phase",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "providerReady",
+          "clr": "ProviderReady",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "restartCount",
+          "clr": "RestartCount",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateAbandonResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "currentStage",
+          "clr": "CurrentStage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "direction",
+          "clr": "Direction",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "intentId",
+          "clr": "IntentId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "isTerminal",
+          "clr": "IsTerminal",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "outcome",
+          "clr": "Outcome",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "phase",
+          "clr": "Phase",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateDiffResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "addedWorkloadIds",
+          "clr": "AddedWorkloadIds",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "anyNewRequiredParameters",
+          "clr": "AnyNewRequiredParameters",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "anySecurityEscalation",
+          "clr": "AnySecurityEscalation",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "error",
+          "clr": "Error",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "fromVersion",
+          "clr": "FromVersion",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "ok",
+          "clr": "Ok",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "pointOfNoReturn",
+          "clr": "PointOfNoReturn",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "removedWorkloadIds",
+          "clr": "RemovedWorkloadIds",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "toVersion",
+          "clr": "ToVersion",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "workloads",
+          "clr": "Workloads",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateEvidenceResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "capturedAtUtc",
+          "clr": "CapturedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "toVersion",
+          "clr": "ToVersion",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloads",
+          "clr": "Workloads",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateEvidenceWorkloadDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "note",
+          "clr": "Note",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "previousContainerLogTail",
+          "clr": "PreviousContainerLogTail",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "recentEvents",
+          "clr": "RecentEvents",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateIntentResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "completedAtUtc",
+          "clr": "CompletedAtUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "createdAtUtc",
+          "clr": "CreatedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "currentStage",
+          "clr": "CurrentStage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "direction",
+          "clr": "Direction",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "error",
+          "clr": "Error",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "evidence",
+          "clr": "Evidence",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "fromDigests",
+          "clr": "FromDigests",
+          "kind": "record",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "fromVersion",
+          "clr": "FromVersion",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "isTerminal",
+          "clr": "IsTerminal",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "outcome",
+          "clr": "Outcome",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "phase",
+          "clr": "Phase",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "phaseEnteredAtUtc",
+          "clr": "PhaseEnteredAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "pointOfNoReturn",
+          "clr": "PointOfNoReturn",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "steps",
+          "clr": "Steps",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "toDigests",
+          "clr": "ToDigests",
+          "kind": "record",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "toVersion",
+          "clr": "ToVersion",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "walkFault",
+          "clr": "WalkFault",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "walkFaultSinceUtc",
+          "clr": "WalkFaultSinceUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateIntentSummary",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "completedAtUtc",
+          "clr": "CompletedAtUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "completedStepCount",
+          "clr": "CompletedStepCount",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "createdAtUtc",
+          "clr": "CreatedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "currentStage",
+          "clr": "CurrentStage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "direction",
+          "clr": "Direction",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "error",
+          "clr": "Error",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "fromVersion",
+          "clr": "FromVersion",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "isTerminal",
+          "clr": "IsTerminal",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "outcome",
+          "clr": "Outcome",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "phase",
+          "clr": "Phase",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "phaseEnteredAtUtc",
+          "clr": "PhaseEnteredAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "stepCount",
+          "clr": "StepCount",
+          "kind": "number",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "toVersion",
+          "clr": "ToVersion",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "walkFault",
+          "clr": "WalkFault",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "walkFaultSinceUtc",
+          "clr": "WalkFaultSinceUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdatePointOfNoReturnDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "passedAtUtc",
+          "clr": "PassedAtUtc",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "reason",
+          "clr": "Reason",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "stageId",
+          "clr": "StageId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateResourceValues",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "limitsCpu",
+          "clr": "LimitsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "limitsMemory",
+          "clr": "LimitsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsCpu",
+          "clr": "RequestsCpu",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "requestsMemory",
+          "clr": "RequestsMemory",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateStatusResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "activeIntentId",
+          "clr": "ActiveIntentId",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "intents",
+          "clr": "Intents",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "pluginInstanceId",
+          "clr": "GroupInstanceId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateStepDto",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "appliedSpecHash",
+          "clr": "AppliedSpecHash",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "progress",
+          "clr": "Progress",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "state",
+          "clr": "State",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "step",
+          "clr": "Step",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "updatedAtUtc",
+          "clr": "UpdatedAtUtc",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadUpdateWorkloadDiff",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadUpdateContracts.cs",
+      "properties": [
+        {
+          "wire": "digestChanged",
+          "clr": "DigestChanged",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "escalations",
+          "clr": "Escalations",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "fromDigest",
+          "clr": "FromDigest",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "fromExtensions",
+          "clr": "FromExtensions",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "fromResources",
+          "clr": "FromResources",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "informationalChanges",
+          "clr": "InformationalChanges",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "isAdded",
+          "clr": "IsAdded",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "narrowings",
+          "clr": "Narrowings",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "newRequiredParameters",
+          "clr": "NewRequiredParameters",
+          "kind": "array",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "operatorResourceOverrides",
+          "clr": "OperatorResourceOverrides",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "previousUnreadable",
+          "clr": "PreviousUnreadable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "resourcesChanged",
+          "clr": "ResourcesChanged",
+          "kind": "boolean",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "securityChange",
+          "clr": "SecurityChange",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "toDigest",
+          "clr": "ToDigest",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "toExtensions",
+          "clr": "ToExtensions",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "toResources",
+          "clr": "ToResources",
+          "kind": "ref",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "workloadId",
+          "clr": "WorkloadId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadVolume",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Deployment/DeploymentManifest.cs",
+      "properties": [
+        {
+          "wire": "accessMode",
+          "clr": "AccessMode",
+          "kind": "string",
+          "required": false,
+          "nullable": false
+        },
+        {
+          "wire": "criticality",
+          "clr": "Criticality",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "description",
+          "clr": "Description",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "id",
+          "clr": "Id",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "mountPath",
+          "clr": "MountPath",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "size",
+          "clr": "Size",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadVolumeResizeResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "applied",
+          "clr": "Applied",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "requestedSize",
+          "clr": "RequestedSize",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "volumeId",
+          "clr": "VolumeId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadVolumeResizeState",
+      "kind": "enum",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "values": [
+        "unknown",
+        "stable",
+        "resizing",
+        "fileSystemResizePending",
+        "resizeRequested",
+        "missing"
+      ]
+    },
+    {
+      "name": "WorkloadVolumeStatus",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "actualCapacity",
+          "clr": "ActualCapacity",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "mountPath",
+          "clr": "MountPath",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "requestedSize",
+          "clr": "RequestedSize",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "resizeMessage",
+          "clr": "ResizeMessage",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "resizeState",
+          "clr": "ResizeState",
+          "kind": "ref",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "storageClassName",
+          "clr": "StorageClassName",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "volumeId",
+          "clr": "VolumeId",
+          "kind": "string",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "WorkloadVolumeStatusResponse",
+      "kind": "object",
+      "file": "src/Reeve.Workloads.Abstractions/Contracts/Workloads/WorkloadInstanceContracts.cs",
+      "properties": [
+        {
+          "wire": "message",
+          "clr": "Message",
+          "kind": "string",
+          "required": false,
+          "nullable": true
+        },
+        {
+          "wire": "providerAvailable",
+          "clr": "ProviderAvailable",
+          "kind": "boolean",
+          "required": true,
+          "nullable": false
+        },
+        {
+          "wire": "volumes",
+          "clr": "Volumes",
+          "kind": "array",
+          "required": true,
+          "nullable": false
+        }
+      ]
+    }
+  ]
+}

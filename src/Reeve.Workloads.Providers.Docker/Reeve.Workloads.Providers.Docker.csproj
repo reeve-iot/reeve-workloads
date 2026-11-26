@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.Providers.Docker</PackageId>
+    <Description>The Docker provider for Reeve.Workloads: container lifecycle, preflight, compose rendering and orphan detection against a Docker daemon. Taken only by a host that deploys workloads as containers.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Docker.DotNet.Enhanced" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Manifest/Reeve.Workloads.Manifest.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Core/Reeve.Workloads.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
+</Project>

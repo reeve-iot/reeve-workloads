@@ -1,0 +1,87 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":separateMultipleMajorReleases"
+  ],
+  "timezone": "Europe/Warsaw",
+  "dependencyDashboard": false,
+  "enabledManagers": [
+    "nuget",
+    "github-actions"
+  ],
+  "packageRules": [
+    {
+      "description": "One pull request per run for the .NET stack instead of one per package.",
+      "matchManagers": [
+        "nuget"
+      ],
+      "groupName": ".NET dependencies"
+    },
+    {
+      "description": "GitHub Actions versions land in one pull request.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "Reeve SDK and contract pins move as a deliberate sweep, not on the bot schedule.",
+      "matchPackageNames": [
+        "/^Reeve\\./"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Major versions of the .NET release train are bumped by hand together with the target framework.",
+      "matchPackageNames": [
+        "Microsoft.Extensions.*",
+        "Microsoft.AspNetCore.*",
+        "Microsoft.NET.*",
+        "!Microsoft.NET.Test.Sdk",
+        "Microsoft.EntityFrameworkCore*",
+        "Npgsql*",
+        "System.*"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "EF Core stays on the major that ships with the target framework: moving it raises every consumer to the next EF Core major, so it is lifted only in the change that decides that.",
+      "matchDatasources": [
+        "nuget"
+      ],
+      "matchPackageNames": [
+        "Microsoft.EntityFrameworkCore*",
+        "Npgsql.EntityFrameworkCore.PostgreSQL"
+      ],
+      "allowedVersions": "<12"
+    },
+    {
+      "description": "The .NET SDK major in the workflows moves by hand together with the target framework.",
+      "matchDatasources": [
+        "dotnet-version"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "The VersionOverride floors in the shipped projects are the lowest versions consumers need; they are raised by hand only for a feature the library needs.",
+      "matchManagers": [
+        "nuget"
+      ],
+      "matchFileNames": [
+        "src/**"
+      ],
+      "matchCurrentVersion": "<11.0.0",
+      "enabled": false
+    }
+  ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2
+}

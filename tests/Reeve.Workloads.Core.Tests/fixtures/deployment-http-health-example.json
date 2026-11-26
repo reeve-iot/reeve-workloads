@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "workloads": [
+    {
+      "id": "http-example",
+      "displayName": "HTTP-health example",
+      "image": {
+        "ref": "registry.example.com:5000/reeve/http-example",
+        "digest": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+        "tag": "1.0.0",
+        "platforms": [
+          "linux/amd64"
+        ]
+      },
+      "kind": "service",
+      "resources": {
+        "requests": {
+          "cpu": "100m",
+          "memory": "192Mi"
+        },
+        "limits": {
+          "memory": "384Mi"
+        }
+      },
+      "network": {
+        "hostNetwork": true,
+        "mdns": true,
+        "ipv6Required": true,
+        "ports": [
+          {
+            "name": "app",
+            "port": 5540,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "health": {
+        "mode": "http",
+        "http": {
+          "port": 8080,
+          "livenessPath": "/healthz",
+          "readinessPath": "/readyz"
+        }
+      },
+      "observability": {
+        "metrics": {
+          "port": 9090,
+          "path": "/metrics"
+        }
+      },
+      "env": [
+        {
+          "name": "REEVE_BACKEND_URL",
+          "from": "bootstrap:backendBaseUrl"
+        },
+        {
+          "name": "REEVE_SPEC_HASH",
+          "from": "bootstrap:specHash"
+        }
+      ],
+      "extensions": {
+        "reeve": {
+          "protocol": {
+            "version": "1",
+            "minSupported": "1"
+          }
+        }
+      }
+    }
+  ]
+}

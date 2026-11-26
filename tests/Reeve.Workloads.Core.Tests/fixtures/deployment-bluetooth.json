@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "workloads": [
+    {
+      "id": "ble-adapter",
+      "displayName": "Bluetooth adapter",
+      "image": {
+        "ref": "registry.example.com:5000/reeve/bluetooth-adapter",
+        "digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "platforms": [
+          "linux/amd64",
+          "linux/arm64"
+        ]
+      },
+      "kind": "single-node",
+      "network": {
+        "hostNetwork": true
+      },
+      "privileges": {
+        "capabilities": [
+          "NET_ADMIN",
+          "NET_RAW"
+        ],
+        "hostDbus": true
+      },
+      "volumes": [
+        {
+          "id": "bindkeys",
+          "mountPath": "/data",
+          "size": "64Mi",
+          "criticality": "critical",
+          "description": "BLE bindkeys — losing them orphans bonded devices",
+          "accessMode": "rwo"
+        }
+      ],
+      "health": {
+        "mode": "adapter-session",
+        "heartbeatSeconds": 30
+      },
+      "hostRequirements": [
+        {
+          "kind": "dbus-service",
+          "name": "bluetoothd",
+          "description": "BlueZ must run on the node"
+        }
+      ],
+      "env": [
+        {
+          "name": "REEVE_GATEWAY_URL",
+          "from": "bootstrap:gatewayUrl"
+        },
+        {
+          "name": "REEVE_WORKLOAD_TOKEN",
+          "from": "bootstrap:workloadToken"
+        },
+        {
+          "name": "REEVE_SPEC_HASH",
+          "from": "bootstrap:specHash"
+        },
+        {
+          "name": "BLE_ADAPTER",
+          "from": "parameter:adapterName"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "nodeSelector",
+          "type": "nodeSelector",
+          "displayName": "BLE node",
+          "description": "Node whose Bluetooth dongle to use",
+          "required": true,
+          "default": "reeve.io/ble=true"
+        },
+        {
+          "name": "adapterName",
+          "type": "text",
+          "displayName": "Adapter",
+          "required": false,
+          "default": "hci0"
+        },
+        {
+          "name": "minRssiDbm",
+          "type": "integer",
+          "displayName": "Minimum RSSI (dBm)",
+          "required": false,
+          "default": -90,
+          "hint": "Ignore advertisements weaker than this"
+        }
+      ],
+      "extensions": {
+        "reeve": {
+          "protocol": {
+            "version": "1",
+            "minSupported": "1"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <PackageId>Reeve.Workloads.Domain</PackageId>
+    <Description>The workload domain rules over the Reeve.Workloads.Abstractions vocabulary: desired-spec resolution and hashing, parameter resolution, resource quantities, privilege and permit policy, deployment diffs, network-attachment policy and resource naming. Pure: nothing beyond the BCL.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Manual.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Kubernetes.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Manifest" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Abstractions.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+  </ItemGroup>
+
+</Project>

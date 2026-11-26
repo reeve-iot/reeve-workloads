@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <PackageId>Reeve.Workloads.DeploymentFixtures</PackageId>
+    <Description>Update conformance fixtures for Reeve Workloads plugins: the canonical update phase order, derived from the phase machine, and deterministic deployment-manifest builders for plugin-repo CI.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\Reeve.Workloads.Domain\Reeve.Workloads.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.Providers.Manual</PackageId>
+    <Description>The manual provider for Reeve.Workloads: the operator deploys the rendered artifact by hand and the host reports whether it is live. The smallest provider, and the one with no orchestrator to reach.</Description>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Core/Reeve.Workloads.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Manual.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+  </ItemGroup>
+
+</Project>

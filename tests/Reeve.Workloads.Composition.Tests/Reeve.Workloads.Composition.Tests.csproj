@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <NoWarn>$(NoWarn);REEVEWL0520</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Shared\CredentialFreeSpecDocuments.cs" Link="Shared\CredentialFreeSpecDocuments.cs" />
+    <Compile Include="..\Shared\CredentialSpecs.cs" Link="Shared\CredentialSpecs.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.DependencyInjection\Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Core\Reeve.Workloads.Core.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.EntityFrameworkCore\Reeve.Workloads.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.EntityFrameworkCore.PostgreSql\Reeve.Workloads.EntityFrameworkCore.PostgreSql.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Docker\Reeve.Workloads.Providers.Docker.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Kubernetes\Reeve.Workloads.Providers.Kubernetes.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Manual\Reeve.Workloads.Providers.Manual.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Testing\Reeve.Workloads.Testing.csproj" />
+  </ItemGroup>
+
+</Project>

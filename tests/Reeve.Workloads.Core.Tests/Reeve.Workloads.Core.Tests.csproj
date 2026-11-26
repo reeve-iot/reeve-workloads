@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <NoWarn>$(NoWarn);REEVEWL0520</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="fixtures\*.json" CopyToOutputDirectory="PreserveNewest"
+          Link="fixtures\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Core\Reeve.Workloads.Core.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Docker\Reeve.Workloads.Providers.Docker.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Kubernetes\Reeve.Workloads.Providers.Kubernetes.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Providers.Manual\Reeve.Workloads.Providers.Manual.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.DeploymentFixtures\Reeve.Workloads.DeploymentFixtures.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Testing\Reeve.Workloads.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.EntityFrameworkCore\Reeve.Workloads.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Shared\ReconcileInputsAnswers.cs" Link="Shared\ReconcileInputsAnswers.cs" />
+    <Compile Include="..\Shared\RecordingCredentialPort.cs" Link="Shared\RecordingCredentialPort.cs" />
+  </ItemGroup>
+
+</Project>

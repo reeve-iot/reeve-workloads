@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "workloads": [
+    {
+      "id": "matter-adapter",
+      "displayName": "Matter adapter",
+      "image": {
+        "ref": "registry.example.com:5000/reeve/matter-adapter",
+        "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "tag": "2.6.0",
+        "platforms": [
+          "linux/amd64",
+          "linux/arm64"
+        ]
+      },
+      "kind": "service",
+      "resources": {
+        "requests": {
+          "cpu": "100m",
+          "memory": "256Mi"
+        },
+        "limits": {
+          "memory": "512Mi"
+        }
+      },
+      "network": {
+        "hostNetwork": true,
+        "mdns": true,
+        "ipv6Required": true
+      },
+      "health": {
+        "mode": "adapter-session",
+        "heartbeatSeconds": 30
+      },
+      "hostRequirements": [
+        {
+          "kind": "udev-serial",
+          "description": "Thread radio at a stable /dev/serial/by-id path"
+        },
+        {
+          "kind": "multicast",
+          "description": "mDNS for Matter commissioning"
+        }
+      ],
+      "env": [
+        {
+          "name": "REEVE_GATEWAY_URL",
+          "from": "bootstrap:gatewayUrl"
+        },
+        {
+          "name": "REEVE_WORKLOAD_TOKEN",
+          "from": "bootstrap:workloadToken"
+        },
+        {
+          "name": "REEVE_SPEC_HASH",
+          "from": "bootstrap:specHash"
+        }
+      ],
+      "extensions": {
+        "reeve": {
+          "protocol": {
+            "version": "1",
+            "minSupported": "1"
+          }
+        }
+      }
+    }
+  ]
+}

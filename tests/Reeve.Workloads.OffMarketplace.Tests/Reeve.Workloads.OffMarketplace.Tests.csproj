@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Core\Reeve.Workloads.Core.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.EntityFrameworkCore\Reeve.Workloads.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Testing\Reeve.Workloads.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.DeploymentFixtures\Reeve.Workloads.DeploymentFixtures.csproj" />
+  </ItemGroup>
+
+</Project>

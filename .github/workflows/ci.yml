@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_NOLOGO: "1"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 11.0.x
+      - run: dotnet build Reeve.Workloads.slnx -c Release
+      - name: Unit tests
+        run: |
+          for p in tests/Reeve.Workloads.Abstractions.Tests \
+                   tests/Reeve.Workloads.Core.Tests \
+                   tests/Reeve.Workloads.Composition.Tests \
+                   tests/Reeve.Workloads.EntityFrameworkCore.PostgreSql.Tests \
+                   tests/Reeve.Workloads.OffMarketplace.Tests \
+                   tests/Reeve.Workloads.ThirdPartyProvider.Tests \
+                   tests/Reeve.Workloads.Providers.Kubernetes.Tests \
+                   tests/Reeve.Workloads.Providers.Docker.Tests \
+                   tests/Reeve.Workloads.Providers.Manual.Tests \
+                   tests/Reeve.Workloads.DeploymentFixtures.Tests \
+                   tests/Reeve.Workloads.Testing.Tests; do
+            dotnet test "$p" -c Release --no-build
+          done
+      - run: dotnet pack Reeve.Workloads.slnx -c Release --no-build -o artifacts/nupkg
+
+  ef-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 11.0.x
+      - run: dotnet test tests/Reeve.Workloads.EntityFrameworkCore.IntegrationTests -c Release
+
+  docker-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 11.0.x
+      - run: dotnet test tests/Reeve.Workloads.Providers.Docker.IntegrationTests -c Release
+
+  kubernetes-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 11.0.x
+      - uses: helm/kind-action@v1
+        with:
+          cluster_name: reeve-e2e
+      - run: |
+          kind get kubeconfig --name reeve-e2e > "$RUNNER_TEMP/reeve-e2e.kubeconfig"
+          kubectl --kubeconfig "$RUNNER_TEMP/reeve-e2e.kubeconfig" create namespace reeve-e2e
+      - run: dotnet test tests/Reeve.Workloads.Providers.Kubernetes.IntegrationTests -c Release
+        env:
+          REEVE_E2E_KUBECONFIG: ${{ runner.temp }}/reeve-e2e.kubeconfig

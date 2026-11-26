@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "workloads": [
+    {
+      "id": "zwave-adapter",
+      "displayName": "Z-Wave adapter",
+      "image": {
+        "ref": "registry.example.com:5000/reeve/zwave-adapter",
+        "digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "platforms": [
+          "linux/amd64",
+          "linux/arm64"
+        ]
+      },
+      "kind": "single-node",
+      "resources": {
+        "requests": {
+          "cpu": "50m",
+          "memory": "128Mi"
+        },
+        "limits": {
+          "memory": "256Mi"
+        }
+      },
+      "privileges": {
+        "runAsRoot": true,
+        "devices": [
+          {
+            "parameter": "serialPort"
+          }
+        ]
+      },
+      "volumes": [
+        {
+          "id": "cache",
+          "mountPath": "/cache",
+          "size": "512Mi",
+          "criticality": "recoverable",
+          "description": "Z-Wave JS node cache",
+          "accessMode": "rwo"
+        }
+      ],
+      "health": {
+        "mode": "adapter-session",
+        "heartbeatSeconds": 30
+      },
+      "hostRequirements": [
+        {
+          "kind": "udev-serial",
+          "description": "Z-Wave stick at a stable /dev/serial/by-id path"
+        }
+      ],
+      "env": [
+        {
+          "name": "REEVE_GATEWAY_URL",
+          "from": "bootstrap:gatewayUrl"
+        },
+        {
+          "name": "REEVE_WORKLOAD_TOKEN",
+          "from": "bootstrap:workloadToken"
+        },
+        {
+          "name": "REEVE_SPEC_HASH",
+          "from": "bootstrap:specHash"
+        },
+        {
+          "name": "ZWAVE_SERIAL_PORT",
+          "from": "parameter:serialPort"
+        },
+        {
+          "name": "ZWAVE_S2_UNAUTHENTICATED",
+          "from": "parameter:s2Unauthenticated"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "serialPort",
+          "type": "devicePath",
+          "displayName": "Serial port",
+          "description": "Path to the Z-Wave controller",
+          "required": true,
+          "hint": "e.g. /dev/serial/by-id/usb-Zooz_800..."
+        },
+        {
+          "name": "s0Legacy",
+          "type": "password",
+          "displayName": "S0 network key",
+          "required": false,
+          "section": "Security keys"
+        },
+        {
+          "name": "s2Unauthenticated",
+          "type": "password",
+          "displayName": "S2 Unauthenticated key",
+          "required": false,
+          "section": "Security keys"
+        }
+      ],
+      "extensions": {
+        "reeve": {
+          "protocol": {
+            "version": "1",
+            "minSupported": "1"
+          }
+        }
+      }
+    }
+  ]
+}

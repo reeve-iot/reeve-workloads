@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Reeve.Workloads.DependencyInjection\Reeve.Workloads.DependencyInjection.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.Core</PackageId>
+    <Description>The provider-neutral workload engine: reconcile, lifecycle, update, health gate, preview, adoption, orphans, watch, rendering, relocate and network. Takes the ports declared by Reeve.Workloads.Abstractions and implements none of them against a provider.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" VersionOverride="10.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" VersionOverride="10.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" VersionOverride="10.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" VersionOverride="10.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Manifest/Reeve.Workloads.Manifest.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Kubernetes.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.EntityFrameworkCore.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.OffMarketplace.Tests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
+</Project>

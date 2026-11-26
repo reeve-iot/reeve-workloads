@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.EntityFrameworkCore.PostgreSql</PackageId>
+    <Description>PostgreSQL support for Reeve.Workloads: the library's migrations, the persistence conventions (jsonb for the JSON columns, filtered partial unique indexes) and an advisory-lock leader election for the workload engine. AddEntityFrameworkStores picks up the migrations and conventions when the context runs on Npgsql; AddPostgreSqlLeaderElection() registers the election.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Reeve.EntityFrameworkCore.AdvisoryLocks" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.EntityFrameworkCore/Reeve.Workloads.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.EntityFrameworkCore.PostgreSql.Tests" />
+  </ItemGroup>
+
+</Project>

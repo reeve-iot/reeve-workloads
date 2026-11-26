@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.EntityFrameworkCore</PackageId>
+    <Description>The Entity Framework Core persistence for Reeve.Workloads: the workloads DbContext, its entity configuration and the repositories over it. A host that persists workloads elsewhere implements the ports instead.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Core/Reeve.Workloads.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.EntityFrameworkCore.IntegrationTests" />
+  </ItemGroup>
+
+</Project>

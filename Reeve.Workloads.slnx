@@ -1,0 +1,36 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <Project Path="src/Reeve.Workloads.Core/Reeve.Workloads.Core.csproj" />
+    <Project Path="src/Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <Project Path="src/Reeve.Workloads.DeploymentFixtures/Reeve.Workloads.DeploymentFixtures.csproj" />
+    <Project Path="src/Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+    <Project Path="src/Reeve.Workloads.EntityFrameworkCore/Reeve.Workloads.EntityFrameworkCore.csproj" />
+    <Project Path="src/Reeve.Workloads.EntityFrameworkCore.PostgreSql/Reeve.Workloads.EntityFrameworkCore.PostgreSql.csproj" />
+    <Project Path="src/Reeve.Workloads.Manifest/Reeve.Workloads.Manifest.csproj" />
+    <Project Path="src/Reeve.Workloads.Providers.Docker/Reeve.Workloads.Providers.Docker.csproj" />
+    <Project Path="src/Reeve.Workloads.Providers.Kubernetes/Reeve.Workloads.Providers.Kubernetes.csproj" />
+    <Project Path="src/Reeve.Workloads.Providers.Manual/Reeve.Workloads.Providers.Manual.csproj" />
+    <Project Path="src/Reeve.Workloads.Testing/Reeve.Workloads.Testing.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/minimal-host/MinimalHost.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Reeve.Workloads.DeploymentFixtures.Tests/Reeve.Workloads.DeploymentFixtures.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Providers.Docker.IntegrationTests/Reeve.Workloads.Providers.Docker.IntegrationTests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Abstractions.Tests/Reeve.Workloads.Abstractions.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Core.Tests/Reeve.Workloads.Core.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Composition.Tests/Reeve.Workloads.Composition.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.EntityFrameworkCore.IntegrationTests/Reeve.Workloads.EntityFrameworkCore.IntegrationTests.csproj" />
+    <Project Path="tests/Reeve.Workloads.EntityFrameworkCore.PostgreSql.Tests/Reeve.Workloads.EntityFrameworkCore.PostgreSql.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Providers.Manual.Tests/Reeve.Workloads.Providers.Manual.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Providers.Docker.Tests/Reeve.Workloads.Providers.Docker.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Providers.Kubernetes.Tests/Reeve.Workloads.Providers.Kubernetes.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Providers.Kubernetes.IntegrationTests/Reeve.Workloads.Providers.Kubernetes.IntegrationTests.csproj" />
+    <Project Path="tests/Reeve.Workloads.Testing.Tests/Reeve.Workloads.Testing.Tests.csproj" />
+    <Project Path="tests/Acme.Workloads.Nomad/Acme.Workloads.Nomad.csproj" />
+    <Project Path="tests/Reeve.Workloads.OffMarketplace.Tests/Reeve.Workloads.OffMarketplace.Tests.csproj" />
+    <Project Path="tests/Reeve.Workloads.ThirdPartyProvider.Tests/Reeve.Workloads.ThirdPartyProvider.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.Providers.Kubernetes</PackageId>
+    <Description>The Kubernetes provider for Reeve.Workloads: object rendering and apply, adoption, relocation, watch and network probing against a cluster. Taken only by a host that deploys workloads as Kubernetes objects.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="KubernetesClient" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch.SystemTextJson" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Domain/Reeve.Workloads.Domain.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.DependencyInjection/Reeve.Workloads.DependencyInjection.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Manifest/Reeve.Workloads.Manifest.csproj" />
+    <ProjectReference Include="../Reeve.Workloads.Core/Reeve.Workloads.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Kubernetes.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Kubernetes.IntegrationTests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
+</Project>

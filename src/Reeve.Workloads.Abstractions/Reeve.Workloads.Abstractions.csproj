@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <PackageId>Reeve.Workloads.Abstractions</PackageId>
+    <Description>The workload vocabulary: the domain model, the ports a host implements, and the deployment manifest a plugin declares. The package every other Reeve.Workloads.* package and every consumer takes.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reeve.Pipeline" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Manual.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Docker.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Providers.Kubernetes.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Domain" />
+    <InternalsVisibleTo Include="Reeve.Workloads.EntityFrameworkCore" />
+    <InternalsVisibleTo Include="Reeve.Workloads.EntityFrameworkCore.IntegrationTests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Core.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Abstractions.Tests" />
+    <InternalsVisibleTo Include="Reeve.Workloads.Composition.Tests" />
+  </ItemGroup>
+
+</Project>

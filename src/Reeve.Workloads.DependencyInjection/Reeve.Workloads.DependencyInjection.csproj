@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <PackageId>Reeve.Workloads.DependencyInjection</PackageId>
+    <Description>The composition surface every Reeve.Workloads package registers through: ReeveWorkloadsBuilder, AddReeveWorkloads with the library's defaults, and the audit that names a host port nothing supplies. A provider of your own takes this and Reeve.Workloads.Abstractions, not the engine.</Description>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="../Reeve.Workloads.Abstractions/Reeve.Workloads.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

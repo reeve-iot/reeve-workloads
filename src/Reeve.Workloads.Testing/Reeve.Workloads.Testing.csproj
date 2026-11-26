@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <PackageId>Reeve.Workloads.Testing</PackageId>
+    <Description>Test helpers for hosts of Reeve.Workloads: an in-memory IWorkloadProvider and an in-memory orchestrator settings source for test and sample compositions. Reference it from test projects only; production engine packages do not depend on it.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reeve.Workloads.Abstractions\Reeve.Workloads.Abstractions.csproj" />
+    <ProjectReference Include="..\Reeve.Workloads.Domain\Reeve.Workloads.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

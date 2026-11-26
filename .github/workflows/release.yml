@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: "1"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 11.0.x
+      - run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+      - name: Release notes
+        run: |
+          awk -v v="$VERSION" '
+            /^## / { if (found) exit; if (index($0, "## " v " ") == 1) { found = 1; next } }
+            found { print }
+          ' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          test -s "$RUNNER_TEMP/notes.md"
+      - run: dotnet build Reeve.Workloads.slnx -c Release /p:Version=$VERSION
+      - name: Unit tests
+        run: |
+          for p in tests/Reeve.Workloads.Abstractions.Tests \
+                   tests/Reeve.Workloads.Core.Tests \
+                   tests/Reeve.Workloads.Composition.Tests \
+                   tests/Reeve.Workloads.EntityFrameworkCore.PostgreSql.Tests \
+                   tests/Reeve.Workloads.OffMarketplace.Tests \
+                   tests/Reeve.Workloads.ThirdPartyProvider.Tests \
+                   tests/Reeve.Workloads.Providers.Kubernetes.Tests \
+                   tests/Reeve.Workloads.Providers.Docker.Tests \
+                   tests/Reeve.Workloads.Providers.Manual.Tests \
+                   tests/Reeve.Workloads.DeploymentFixtures.Tests \
+                   tests/Reeve.Workloads.Testing.Tests; do
+            dotnet test "$p" -c Release --no-build
+          done
+      - run: dotnet pack Reeve.Workloads.slnx -c Release --no-build -o artifacts/nupkg /p:Version=$VERSION
+      - uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ vars.NUGET_USER }}
+      - run: >
+          dotnet nuget push "artifacts/nupkg/*.nupkg"
+          --api-key "${{ steps.login.outputs.NUGET_API_KEY }}"
+          --source https://api.nuget.org/v3/index.json
+
+  github-release:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          awk -v v="${GITHUB_REF_NAME#v}" '
+            /^## / { if (found) exit; if (index($0, "## " v " ") == 1) { found = 1; next } }
+            found { print }
+          ' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          test -s "$RUNNER_TEMP/notes.md"
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" \
+            --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
