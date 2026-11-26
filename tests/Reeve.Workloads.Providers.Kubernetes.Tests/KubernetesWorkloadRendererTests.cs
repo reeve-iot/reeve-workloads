@@ -686,9 +686,9 @@ public sealed class KubernetesWorkloadRendererTests
     [Fact]
     public void NodeSelector_flows_to_the_pod_node_selector()
     {
-        var r = Renderer.Render(Spec(nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }), Ctx);
+        var r = Renderer.Render(Spec(nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }), Ctx);
 
-        PodSpec(r).NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve.io/ble"] = "true" });
+        PodSpec(r).NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" });
     }
 
     [Fact]
@@ -1290,7 +1290,7 @@ public sealed class KubernetesWorkloadRendererTests
     [Fact]
     public void The_node_eligibility_selector_is_stamped_on_the_daemonset_and_never_on_a_pinned_job()
     {
-        var selector = new Dictionary<string, string> { ["reeve.io/iot-parent"] = "true" };
+        var selector = new Dictionary<string, string> { ["reeve-iot.dev/iot-parent"] = "true" };
 
         var daemonSet = Renderer.Render(
             Spec(kind: WorkloadKind.PerNode, network: Attached("iot-macvlan"), nodeSelector: selector), Ctx);
@@ -1314,7 +1314,7 @@ public sealed class KubernetesWorkloadRendererTests
     public void The_scan_fan_out_renders_exactly_the_nodes_it_was_given()
     {
         var scan = Renderer.Render(
-            Spec(kind: WorkloadKind.ScanPerNode, network: Attached("iot-macvlan"), nodeSelector: new Dictionary<string, string> { ["reeve.io/iot-parent"] = "true" }),
+            Spec(kind: WorkloadKind.ScanPerNode, network: Attached("iot-macvlan"), nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/iot-parent"] = "true" }),
             Ctx,
             new[] { "node-a", "node-c" },
             "run-1");

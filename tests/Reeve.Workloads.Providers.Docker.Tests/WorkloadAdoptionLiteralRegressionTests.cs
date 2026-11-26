@@ -44,7 +44,7 @@ public sealed class WorkloadAdoptionLiteralRegressionTests
         namer.VolumeScheme.Should().Be(RetainedVolumeSchemeId.Docker);
         namer.InstanceSelectorLabels(Instance).Should().Equal(new Dictionary<string, string>
         {
-            ["io.reeve.workload-instance"] = "aaaaaaaa-0000-0000-0000-000000000001",
+            ["dev.reeve-iot.workload-instance"] = "aaaaaaaa-0000-0000-0000-000000000001",
         });
     }
 
@@ -66,22 +66,22 @@ public sealed class WorkloadAdoptionLiteralRegressionTests
     public void The_provider_constants_are_the_literals_live_resources_carry()
     {
         DockerProviderConstants.DefaultNetworkName.Should().Be("reeve-workloads");
-        DockerProviderConstants.InstanceLabelKey.Should().Be("io.reeve.workload-instance");
-        DockerProviderConstants.InstallationLabelKey.Should().Be("io.reeve.installation");
-        DockerProviderConstants.SpecHashLabelKey.Should().Be("io.reeve.spec-hash");
-        DockerProviderConstants.RestartNonceLabelKey.Should().Be("io.reeve.restart-nonce");
-        DockerProviderConstants.GroupIdLabelKey.Should().Be("io.reeve.plugin-type-id");
-        DockerProviderConstants.WorkloadIdLabelKey.Should().Be("io.reeve.workload-id");
-        DockerProviderConstants.ManagedByLabelKey.Should().Be("io.reeve.managed-by");
+        DockerProviderConstants.InstanceLabelKey.Should().Be("dev.reeve-iot.workload-instance");
+        DockerProviderConstants.InstallationLabelKey.Should().Be("dev.reeve-iot.installation");
+        DockerProviderConstants.SpecHashLabelKey.Should().Be("dev.reeve-iot.spec-hash");
+        DockerProviderConstants.RestartNonceLabelKey.Should().Be("dev.reeve-iot.restart-nonce");
+        DockerProviderConstants.GroupIdLabelKey.Should().Be("dev.reeve-iot.plugin-type-id");
+        DockerProviderConstants.WorkloadIdLabelKey.Should().Be("dev.reeve-iot.workload-id");
+        DockerProviderConstants.ManagedByLabelKey.Should().Be("dev.reeve-iot.managed-by");
         DockerProviderConstants.ManagedByLabelValue.Should().Be("reeve-workloads");
-        DockerProviderConstants.MetricsScrapeLabelKey.Should().Be("io.reeve.metrics.scrape");
-        DockerProviderConstants.MetricsPortLabelKey.Should().Be("io.reeve.metrics.port");
-        DockerProviderConstants.MetricsPathLabelKey.Should().Be("io.reeve.metrics.path");
+        DockerProviderConstants.MetricsScrapeLabelKey.Should().Be("dev.reeve-iot.metrics.scrape");
+        DockerProviderConstants.MetricsPortLabelKey.Should().Be("dev.reeve-iot.metrics.port");
+        DockerProviderConstants.MetricsPathLabelKey.Should().Be("dev.reeve-iot.metrics.path");
 
         KubernetesWorkloadProvider.FieldManager.Should().Be("reeve-workloads");
         KubernetesWorkloadRenderer.RestartGenerationAnnotationKey
-            .Should().Be("reeve.io/restart-generation");
-        WorkloadAdoptionLabels.ManagedByLabelKey.Should().Be("reeve.io/managed-by");
+            .Should().Be("reeve-iot.dev/restart-generation");
+        WorkloadAdoptionLabels.ManagedByLabelKey.Should().Be("reeve-iot.dev/managed-by");
     }
 
     [Fact]
@@ -91,12 +91,12 @@ public sealed class WorkloadAdoptionLiteralRegressionTests
 
         labels.Should().BeEquivalentTo(new Dictionary<string, string>
         {
-            ["io.reeve.workload-instance"] = "22222222-2222-2222-2222-222222222222",
-            ["io.reeve.spec-hash"] = "abc123",
-            ["io.reeve.plugin-type-id"] = "acme.thread",
-            ["io.reeve.workload-id"] = "gateway",
-            ["io.reeve.managed-by"] = "reeve-workloads",
-            ["io.reeve.installation"] = "install-1",
+            ["dev.reeve-iot.workload-instance"] = "22222222-2222-2222-2222-222222222222",
+            ["dev.reeve-iot.spec-hash"] = "abc123",
+            ["dev.reeve-iot.plugin-type-id"] = "acme.thread",
+            ["dev.reeve-iot.workload-id"] = "gateway",
+            ["dev.reeve-iot.managed-by"] = "reeve-workloads",
+            ["dev.reeve-iot.installation"] = "install-1",
         });
     }
 
@@ -127,11 +127,11 @@ public sealed class WorkloadAdoptionLiteralRegressionTests
         Names = ["/reeve-wl-acme-thread-gateway-22222222"],
         Labels = new Dictionary<string, string>(StringComparer.Ordinal)
         {
-            ["io.reeve.managed-by"] = "reeve-workloads",
-            ["io.reeve.workload-instance"] = Instance.ToString("D"),
-            ["io.reeve.installation"] = Installation.ToString("D"),
-            ["io.reeve.plugin-type-id"] = "acme.thread",
-            ["io.reeve.workload-id"] = "gateway",
+            ["dev.reeve-iot.managed-by"] = "reeve-workloads",
+            ["dev.reeve-iot.workload-instance"] = Instance.ToString("D"),
+            ["dev.reeve-iot.installation"] = Installation.ToString("D"),
+            ["dev.reeve-iot.plugin-type-id"] = "acme.thread",
+            ["dev.reeve-iot.workload-id"] = "gateway",
         },
     };
 
@@ -175,7 +175,7 @@ public sealed class WorkloadAdoptionLiteralRegressionTests
         SecretName = "reeve-wl-acme-thread-gateway-22222222-secret",
         Labels = new Dictionary<string, string>(StringComparer.Ordinal)
         {
-            ["reeve.io/installation"] = "install-1",
+            ["reeve-iot.dev/installation"] = "install-1",
         },
         Image = "registry.example.com/acme/thread@sha256:deadbeef",
         Kind = WorkloadKind.SingleNode,

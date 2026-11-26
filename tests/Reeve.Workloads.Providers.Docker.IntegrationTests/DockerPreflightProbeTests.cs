@@ -140,7 +140,7 @@ public sealed class DockerPreflightProbeTests
     {
         var client = ClientReturningVersion(Version(apiVersion: "1.51", arch: "amd64", os: "linux"));
         var sut = new DockerPreflight(FactoryFor(client));
-        var spec = Spec(nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" });
+        var spec = Spec(nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" });
 
         var result = await sut.ProbeAsync(SettingsWith(), spec, CancellationToken.None);
 
@@ -200,7 +200,7 @@ public sealed class DockerPreflightProbeTests
         var client = ClientReturningVersion(Version(apiVersion: "1.51", arch: "amd64", os: "linux"));
         var provider = BuildProvider(client);
         var spec = Spec(
-            nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" },
+            nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" },
             network: new ResolvedNetwork { Mdns = true, HostNetwork = false });
 
         var result = await provider.PreflightAsync(spec, CancellationToken.None);

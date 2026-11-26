@@ -30,7 +30,7 @@ public sealed class InMemoryWorkloadProviderTests
             Provider = StandInProviders.KubernetesId,
             ResourceName = "reeve-wl-com-reeve-matter-matter-11111111",
             SecretName = "reeve-wl-com-reeve-matter-matter-11111111",
-            Labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = InstanceId.ToString() },
+            Labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = InstanceId.ToString() },
             Image = image,
             Kind = WorkloadKind.SingleNode,
             Health = new WorkloadHealth { Mode = new WorkloadHealthMode("adapter-session"), HeartbeatSeconds = 30 },

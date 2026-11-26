@@ -15,7 +15,7 @@ internal sealed class DockerDeviceDiscoveryProbe : IDockerDeviceDiscoveryProbe
 
     public const string DefaultHelperImage = "busybox:latest";
 
-    public const string HelperMarkerLabelKey = "io.reeve.device-discovery";
+    public const string HelperMarkerLabelKey = "dev.reeve-iot.device-discovery";
 
     public const string HelperMarkerLabelValue = "host-serial";
 

@@ -107,8 +107,8 @@ REEVE_E2E_KUBECONFIG=<kubeconfig> REEVE_E2E_MULTUS=1 REEVE_E2E_MULTUS_VLAN_CIDR=
 The test uses `registry.k8s.io/pause` (pinned by digest) as the workload and `busybox:1.36` as a helper. A cluster that
 mirrors registries or has no internet access needs both available.
 
-Jobs the test creates carry the label `reeve.io/e2e-multus`. Clean up after a failed run with
-`kubectl -n reeve-e2e delete jobs -l reeve.io/e2e-multus`.
+Jobs the test creates carry the label `reeve-iot.dev/e2e-multus`. Clean up after a failed run with
+`kubectl -n reeve-e2e delete jobs -l reeve-iot.dev/e2e-multus`.
 
 ## Pull requests
 

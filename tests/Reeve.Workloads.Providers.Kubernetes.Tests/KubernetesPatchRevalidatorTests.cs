@@ -317,7 +317,7 @@ public sealed class KubernetesPatchRevalidatorTests
     public void RelabellingTheObject_IsAViolation()
     {
         var rendered = Rendered();
-        rendered.Deployment!.Metadata.Labels["reeve.io/workload-instance"] = "someone-elses-instance";
+        rendered.Deployment!.Metadata.Labels["reeve-iot.dev/workload-instance"] = "someone-elses-instance";
 
         Violations(rendered).Should().ContainSingle().Which.Should().Contain("metadata.labels");
     }
@@ -326,7 +326,7 @@ public sealed class KubernetesPatchRevalidatorTests
     public void RepointingTheSelectorAtAnotherWorkloadsPods_IsAViolation()
     {
         var rendered = Rendered();
-        rendered.Deployment!.Spec.Selector.MatchLabels["reeve.io/workload-instance"] = "someone-elses-instance";
+        rendered.Deployment!.Spec.Selector.MatchLabels["reeve-iot.dev/workload-instance"] = "someone-elses-instance";
 
         Violations(rendered).Should().ContainSingle()
             .Which.Should().Contain("adopt pods this workload does not own");
@@ -337,7 +337,7 @@ public sealed class KubernetesPatchRevalidatorTests
     {
         var rendered = Rendered();
         rendered.Deployment!.Spec.Selector.MatchExpressions =
-            [new V1LabelSelectorRequirement { Key = "reeve.io/workload-instance", OperatorProperty = "Exists" }];
+            [new V1LabelSelectorRequirement { Key = "reeve-iot.dev/workload-instance", OperatorProperty = "Exists" }];
 
         Violations(rendered).Should().ContainSingle().Which.Should().Contain("matchExpressions");
     }

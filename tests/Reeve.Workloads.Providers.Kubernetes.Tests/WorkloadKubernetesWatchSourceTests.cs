@@ -37,12 +37,12 @@ public sealed class WorkloadKubernetesWatchSourceTests
         using var h = new Harness();
         var settings = new WorkloadOrchestratorSettings().WithProvider(KubernetesProvider.Id, new KubernetesProviderSettings());
 
-        var source = h.BuildFromSettings(settings, podNamespace: "smarthome");
+        var source = h.BuildFromSettings(settings, podNamespace: "pod-ns");
         await source.StartAsync(h.Sink, CancellationToken.None);
         await h.WaitUntilAsync(() => h.WatchCallCount >= 1, Timeout5);
         await source.StopAsync(CancellationToken.None);
 
-        h.WatchNamespaces.Should().OnlyContain(n => n == "smarthome");
+        h.WatchNamespaces.Should().OnlyContain(n => n == "pod-ns");
     }
 
     [Fact]
@@ -52,7 +52,7 @@ public sealed class WorkloadKubernetesWatchSourceTests
         var settings = new WorkloadOrchestratorSettings()
             .WithProvider(KubernetesProvider.Id, new KubernetesProviderSettings { Namespace = "chosen" });
 
-        var source = h.BuildFromSettings(settings, podNamespace: "smarthome");
+        var source = h.BuildFromSettings(settings, podNamespace: "pod-ns");
         await source.StartAsync(h.Sink, CancellationToken.None);
         await h.WaitUntilAsync(() => h.WatchCallCount >= 1, Timeout5);
         await source.StopAsync(CancellationToken.None);

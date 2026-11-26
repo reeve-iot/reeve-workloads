@@ -24,7 +24,7 @@ public sealed class KubernetesObjectClientScaleConflictTests
         new(NullLogger<KubernetesObjectClient>.Instance);
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
 
     private static HttpOperationResponse<T> Ok<T>(T body) =>
         new() { Body = body, Response = new HttpResponseMessage(HttpStatusCode.OK) };

@@ -16,9 +16,9 @@ namespace Reeve.Workloads.Providers.Kubernetes;
 
 internal sealed class KubernetesWorkloadRenderer
 {
-    public const string RestartGenerationAnnotationKey = "reeve.io/restart-generation";
+    public const string RestartGenerationAnnotationKey = "reeve-iot.dev/restart-generation";
 
-    public const string CredentialDigestAnnotationKey = "reeve.io/credential-digest";
+    public const string CredentialDigestAnnotationKey = "reeve-iot.dev/credential-digest";
 
     public const string NetworksAnnotationKey = "k8s.v1.cni.cncf.io/networks";
 

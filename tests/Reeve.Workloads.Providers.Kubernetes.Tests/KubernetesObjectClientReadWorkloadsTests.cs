@@ -17,7 +17,7 @@ namespace Reeve.Workloads.Providers.Kubernetes.Tests;
 public sealed class KubernetesObjectClientReadWorkloadsTests
 {
     private const string Namespace = "reeve";
-    private const string InstanceLabel = "reeve.io/workload-instance";
+    private const string InstanceLabel = "reeve-iot.dev/workload-instance";
 
     private static readonly Guid Deployed = Guid.Parse("11111111-1111-1111-1111-111111111111");
     private static readonly Guid DaemonSet = Guid.Parse("22222222-2222-2222-2222-222222222222");

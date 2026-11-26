@@ -382,12 +382,12 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
     {
         var cluster = Cluster(nodes: new[]
         {
-            Node("arm-ble", "arm64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Node("arm-ble", "arm64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Node("amd-plain", "amd64"),
         });
 
         var r = Checker.Check(
-            Spec(platforms: new[] { "linux/amd64" }, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(platforms: new[] { "linux/amd64" }, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -400,7 +400,7 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
         var cluster = Cluster(nodes: new[] { Node("n1", "amd64"), Node("n2", "amd64"), Node("n3", "amd64") });
 
         var r = Checker.Check(
-            Spec(platforms: new[] { "linux/amd64" }, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(platforms: new[] { "linux/amd64" }, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -449,7 +449,7 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
         var cluster = Cluster(nodes: new[] { Node("n1", "amd64") });
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -465,12 +465,12 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
     {
         var cluster = Cluster(nodes: new[]
         {
-            Node("n1", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
-            Node("n2", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Node("n1", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
+            Node("n2", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
         });
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -486,12 +486,12 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
     {
         var cluster = Cluster(nodes: new[]
         {
-            Node("n1", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Node("n1", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Node("n2", "amd64"),
         });
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -787,11 +787,11 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
     {
         var cluster = Cluster(nodes: new[]
         {
-            Node("n1", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }, schedulable: false),
+            Node("n1", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }, schedulable: false),
         });
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -808,12 +808,12 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
     {
         var cluster = Cluster(nodes: new[]
         {
-            Node("live", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
-            Node("cordoned", "amd64", new Dictionary<string, string> { ["reeve.io/ble"] = "true" }, schedulable: false),
+            Node("live", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
+            Node("cordoned", "amd64", new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }, schedulable: false),
         });
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -828,7 +828,7 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
         var cluster = Cluster(nodes: new List<ClusterNodeInfo>(), nodesAvailable: false);
 
         var r = Checker.Check(
-            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" }),
+            Spec(kind: WorkloadKind.SingleNode, nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" }),
             Settings(),
             cluster);
 
@@ -986,7 +986,7 @@ public sealed class KubernetesWorkloadPreflightCheckerTests
             Spec(
                 platforms: new[] { "linux/amd64" },
                 kind: WorkloadKind.SingleNode,
-                nodeSelector: new Dictionary<string, string> { ["reeve.io/ble"] = "true" },
+                nodeSelector: new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" },
                 volumes: new[] { Volume("ebs") }),
             Settings(),
             cluster);

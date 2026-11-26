@@ -26,7 +26,7 @@ public sealed class KubernetesObjectClientF3bTests
         new(NullLogger<KubernetesObjectClient>.Instance);
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
 
     private static HttpOperationResponse<T> Ok<T>(T body) =>
         new() { Body = body, Response = new HttpResponseMessage(HttpStatusCode.OK) };
@@ -342,7 +342,7 @@ public sealed class KubernetesObjectClientF3bTests
             Name = "reeve-wl-matter-data-11111111",
             Labels = new Dictionary<string, string>
             {
-                ["reeve.io/workload-instance"] = "22222222-2222-2222-2222-222222222222",
+                ["reeve-iot.dev/workload-instance"] = "22222222-2222-2222-2222-222222222222",
             },
         },
         Spec = new V1PersistentVolumeClaimSpec
@@ -359,7 +359,7 @@ public sealed class KubernetesObjectClientF3bTests
     {
         var (client, patches) = ClientWithExistingLabelledPvc(new Dictionary<string, string>
         {
-            ["reeve.io/workload-instance"] = "11111111-1111-1111-1111-111111111111",
+            ["reeve-iot.dev/workload-instance"] = "11111111-1111-1111-1111-111111111111",
         });
 
         await NewClient().EnsurePvcAsync(client, Namespace, DesiredLabelledPvc(), isAdoptedClaim: true, CancellationToken.None);
@@ -375,7 +375,7 @@ public sealed class KubernetesObjectClientF3bTests
     {
         var (client, patches) = ClientWithExistingLabelledPvc(new Dictionary<string, string>
         {
-            ["reeve.io/workload-instance"] = "22222222-2222-2222-2222-222222222222",
+            ["reeve-iot.dev/workload-instance"] = "22222222-2222-2222-2222-222222222222",
         });
 
         await NewClient().EnsurePvcAsync(client, Namespace, DesiredLabelledPvc(), isAdoptedClaim: true, CancellationToken.None);
@@ -391,7 +391,7 @@ public sealed class KubernetesObjectClientF3bTests
             Metadata = new V1ObjectMeta
             {
                 Name = "reeve-wl-matter-data-11111111",
-                Labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111-1111-1111-1111-111111111111" },
+                Labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111-1111-1111-1111-111111111111" },
             },
             Spec = new V1PersistentVolumeClaimSpec
             {
@@ -432,7 +432,7 @@ public sealed class KubernetesObjectClientF3bTests
             Name = name,
             Labels = new Dictionary<string, string>
             {
-                ["reeve.io/workload-instance"] = "22222222-2222-2222-2222-222222222222",
+                ["reeve-iot.dev/workload-instance"] = "22222222-2222-2222-2222-222222222222",
             },
         },
         Spec = new V1PersistentVolumeClaimSpec
@@ -503,7 +503,7 @@ public sealed class KubernetesObjectClientF3bTests
     {
         var (client, patches) = ClientWithExistingLabelledPvc(new Dictionary<string, string>
         {
-            ["reeve.io/workload-instance"] = "11111111-1111-1111-1111-111111111111",
+            ["reeve-iot.dev/workload-instance"] = "11111111-1111-1111-1111-111111111111",
         });
 
         var act = async () => await NewClient().EnsurePvcAsync(client, Namespace, AdoptedPvc(), isAdoptedClaim: true, CancellationToken.None);

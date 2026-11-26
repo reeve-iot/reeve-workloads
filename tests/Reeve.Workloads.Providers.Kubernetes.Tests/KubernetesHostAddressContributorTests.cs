@@ -16,13 +16,13 @@ public sealed class KubernetesHostAddressContributorTests
 
     [Fact]
     public void An_explicit_namespace_is_used_and_the_pods_is_not()
-        => Contributor("reeve").AddressOf(new HostEndpoint("smarthome-backend", 3000, "home"))
-            .Should().Be("smarthome-backend.home.svc.cluster.local:3000");
+        => Contributor("reeve").AddressOf(new HostEndpoint("reeve-backend", 3000, "home"))
+            .Should().Be("reeve-backend.home.svc.cluster.local:3000");
 
     [Fact]
     public void A_padded_explicit_namespace_is_trimmed()
-        => Contributor("reeve").AddressOf(new HostEndpoint("smarthome-backend", 3000, " home\n"))
-            .Should().Be("smarthome-backend.home.svc.cluster.local:3000");
+        => Contributor("reeve").AddressOf(new HostEndpoint("reeve-backend", 3000, " home\n"))
+            .Should().Be("reeve-backend.home.svc.cluster.local:3000");
 
     [Fact]
     public void The_port_is_always_written_even_when_it_is_80()

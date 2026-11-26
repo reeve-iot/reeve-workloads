@@ -87,13 +87,13 @@ public sealed class KubernetesObjectClientReadNodesTests
     [Fact]
     public async Task ListReadyNodes_partitions_the_ready_set_into_eligible_and_INELIGIBLE_for_a_selector()
     {
-        var selector = new Dictionary<string, string> { ["reeve.io/vlan100"] = "true" };
+        var selector = new Dictionary<string, string> { ["reeve-iot.dev/vlan100"] = "true" };
         var harness = new Harness(new[]
         {
-            Labelled("node-with-vlan", ("reeve.io/vlan100", "true")),
+            Labelled("node-with-vlan", ("reeve-iot.dev/vlan100", "true")),
             Labelled("node-no-vlan"),
-            Labelled("node-wrong-value", ("reeve.io/vlan100", "false")),
-            Labelled("node-also-vlan", ("reeve.io/vlan100", "true"), ("x", "y")),
+            Labelled("node-wrong-value", ("reeve-iot.dev/vlan100", "false")),
+            Labelled("node-also-vlan", ("reeve-iot.dev/vlan100", "true"), ("x", "y")),
             Cordoned("node-cordoned"),
         });
 
@@ -117,13 +117,13 @@ public sealed class KubernetesObjectClientReadNodesTests
     {
         var selector = new Dictionary<string, string>
         {
-            ["reeve.io/vlan100"] = "true",
+            ["reeve-iot.dev/vlan100"] = "true",
             ["kubernetes.io/arch"] = "amd64",
         };
         var harness = new Harness(new[]
         {
-            Labelled("both", ("reeve.io/vlan100", "true"), ("kubernetes.io/arch", "amd64")),
-            Labelled("only-vlan", ("reeve.io/vlan100", "true")),
+            Labelled("both", ("reeve-iot.dev/vlan100", "true"), ("kubernetes.io/arch", "amd64")),
+            Labelled("only-vlan", ("reeve-iot.dev/vlan100", "true")),
             Labelled("only-arch", ("kubernetes.io/arch", "amd64")),
         });
 
@@ -149,7 +149,7 @@ public sealed class KubernetesObjectClientReadNodesTests
     public async Task ListReadyNodes_still_propagates_a_403_when_a_NON_empty_selector_is_supplied()
     {
         var harness = new Harness(throwStatus: System.Net.HttpStatusCode.Forbidden);
-        var selector = new Dictionary<string, string> { ["reeve.io/vlan100"] = "true" };
+        var selector = new Dictionary<string, string> { ["reeve-iot.dev/vlan100"] = "true" };
 
         var act = async () => await NewClient().ListReadyNodesAsync(harness.Client, selector, CancellationToken.None);
 

@@ -24,7 +24,7 @@ public readonly record struct WorkloadRef
     /// <summary>The provider this instance is materialized on.</summary>
     public required WorkloadProviderId Provider { get; init; }
 
-    /// <summary>The canonical label-based lookup for this instance's resources: <c>{ reeve.io/workload-instance
+    /// <summary>The canonical label-based lookup for this instance's resources: <c>{ reeve-iot.dev/workload-instance
     /// = InstanceId }</c>. This is the only reliable identity key — providers must key on this, never on names.</summary>
     public IReadOnlyDictionary<string, string> InstanceSelectorLabels
         => new Dictionary<string, string> { [WorkloadResourceLabels.InstanceLabelKey] = InstanceId.ToString("D") };

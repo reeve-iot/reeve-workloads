@@ -20,13 +20,13 @@ internal static class DockerProviderConstants
 
     public const string InstanceLabelKey = DockerResourceNamer.InstanceLabelKey;
 
-    public const string InstallationLabelKey = "io.reeve.installation";
+    public const string InstallationLabelKey = "dev.reeve-iot.installation";
 
-    public const string SpecHashLabelKey = "io.reeve.spec-hash";
+    public const string SpecHashLabelKey = "dev.reeve-iot.spec-hash";
 
-    public const string RestartNonceLabelKey = "io.reeve.restart-nonce";
+    public const string RestartNonceLabelKey = "dev.reeve-iot.restart-nonce";
 
-    public const string UnhashedEnvDigestLabelKey = "io.reeve.unhashed-env-digest";
+    public const string UnhashedEnvDigestLabelKey = "dev.reeve-iot.unhashed-env-digest";
 
     public static string? UnhashedEnvDigest(IEnumerable<ResolvedEnvVar> env)
     {
@@ -52,23 +52,23 @@ internal static class DockerProviderConstants
         return Convert.ToHexString(sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(buffer.ToString()))).ToLowerInvariant();
     }
 
-    public const string CredentialDigestLabelKey = "io.reeve.credential-digest";
+    public const string CredentialDigestLabelKey = "dev.reeve-iot.credential-digest";
 
-    public const string GroupIdLabelKey = "io.reeve.plugin-type-id";
+    public const string GroupIdLabelKey = "dev.reeve-iot.plugin-type-id";
 
-    public const string WorkloadIdLabelKey = "io.reeve.workload-id";
+    public const string WorkloadIdLabelKey = "dev.reeve-iot.workload-id";
 
-    public const string ManagedByLabelKey = "io.reeve.managed-by";
+    public const string ManagedByLabelKey = "dev.reeve-iot.managed-by";
 
     public const string ManagedByLabelValue = "reeve-workloads";
 
     public const long AttachmentGatewayPriority = -100;
 
-    public const string MetricsScrapeLabelKey = "io.reeve.metrics.scrape";
+    public const string MetricsScrapeLabelKey = "dev.reeve-iot.metrics.scrape";
 
-    public const string MetricsPortLabelKey = "io.reeve.metrics.port";
+    public const string MetricsPortLabelKey = "dev.reeve-iot.metrics.port";
 
-    public const string MetricsPathLabelKey = "io.reeve.metrics.path";
+    public const string MetricsPathLabelKey = "dev.reeve-iot.metrics.path";
 
     public static IReadOnlyDictionary<string, string> BuildResourceLabels(WorkloadDesiredSpec spec)
     {

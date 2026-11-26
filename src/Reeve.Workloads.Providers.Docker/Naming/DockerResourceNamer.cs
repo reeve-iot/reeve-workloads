@@ -26,8 +26,8 @@ public sealed class DockerResourceNamer : IWorkloadResourceNamer
     public static DockerResourceNamer Instance { get; } = new();
 
     /// <summary>Docker instance-identity label key. Docker forbids <c>/</c> before the domain, so the k8s
-    /// <c>reeve.io/workload-instance</c> spelling is not available and the reverse-DNS one is used instead.</summary>
-    public const string InstanceLabelKey = "io.reeve.workload-instance";
+    /// <c>reeve-iot.dev/workload-instance</c> spelling is not available and the reverse-DNS one is used instead.</summary>
+    public const string InstanceLabelKey = "dev.reeve-iot.workload-instance";
 
     /// <inheritdoc />
     public WorkloadProviderId Provider => DockerProvider.Id;
@@ -48,9 +48,9 @@ public sealed class DockerResourceNamer : IWorkloadResourceNamer
         => WorkloadResourceNaming.DockerSchemeVolumeName(subject, volumeId);
 
     /// <inheritdoc />
-    /// <remarks>The DEFAULT set, <c>reeve.io/*</c> and all — which looks wrong for a docker arm and is not. These
+    /// <remarks>The DEFAULT set, <c>reeve-iot.dev/*</c> and all — which looks wrong for a docker arm and is not. These
     /// labels land on <c>WorkloadDesiredSpec.Labels</c>, and this arm does not stamp that set on its containers:
-    /// it builds its own <c>io.reeve.*</c> set in <c>DockerProviderConstants.BuildResourceLabels</c> and reads
+    /// it builds its own <c>dev.reeve-iot.*</c> set in <c>DockerProviderConstants.BuildResourceLabels</c> and reads
     /// the installation id back OUT of the spec's set. Answering anything else here would silently drop the
     /// installation label from every container this arm creates.</remarks>
     public IReadOnlyDictionary<string, string> Labels(WorkloadLabelSubject subject)

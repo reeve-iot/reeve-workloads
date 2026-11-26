@@ -25,12 +25,12 @@ public sealed class WorkloadBrandLiteralFreezeTests
     [Fact]
     public void The_label_keys_live_resources_carry_are_frozen()
     {
-        WorkloadResourceLabels.InstanceLabelKey.Should().Be("reeve.io/workload-instance");
-        WorkloadResourceLabels.CriticalityLabelKey.Should().Be("reeve.io/criticality");
-        WorkloadResourceLabels.InstallationLabelKey.Should().Be("reeve.io/installation");
-        WorkloadResourceLabels.SpecHashLabelKey.Should().Be("reeve.io/spec-hash");
-        WorkloadResourceLabels.ScanNodeLabelKey.Should().Be("reeve.io/scan-node");
-        WorkloadResourceLabels.ScanRunLabelKey.Should().Be("reeve.io/scan-run");
+        WorkloadResourceLabels.InstanceLabelKey.Should().Be("reeve-iot.dev/workload-instance");
+        WorkloadResourceLabels.CriticalityLabelKey.Should().Be("reeve-iot.dev/criticality");
+        WorkloadResourceLabels.InstallationLabelKey.Should().Be("reeve-iot.dev/installation");
+        WorkloadResourceLabels.SpecHashLabelKey.Should().Be("reeve-iot.dev/spec-hash");
+        WorkloadResourceLabels.ScanNodeLabelKey.Should().Be("reeve-iot.dev/scan-node");
+        WorkloadResourceLabels.ScanRunLabelKey.Should().Be("reeve-iot.dev/scan-run");
     }
 
     [Fact]
@@ -58,7 +58,7 @@ public sealed class WorkloadBrandLiteralFreezeTests
         DefaultWorkloadResourceNamer.Instance.InstanceSelectorLabels(InstanceId)
             .Should().Equal(new Dictionary<string, string>
             {
-                ["reeve.io/workload-instance"] = "22222222-3333-4444-5555-666666666666",
+                ["reeve-iot.dev/workload-instance"] = "22222222-3333-4444-5555-666666666666",
             });
     }
 
@@ -74,7 +74,7 @@ public sealed class WorkloadBrandLiteralFreezeTests
         });
 
         labels.Keys.Should().BeEquivalentTo(
-            ["reeve.io/workload-instance", "reeve.io/installation", "reeve.io/spec-hash", "reeve.io/criticality"]);
+            ["reeve-iot.dev/workload-instance", "reeve-iot.dev/installation", "reeve-iot.dev/spec-hash", "reeve-iot.dev/criticality"]);
     }
 
     [Fact]
@@ -83,17 +83,17 @@ public sealed class WorkloadBrandLiteralFreezeTests
         var labels = WorkloadResourceNaming.ScanPerNodeJobLabels(
             InstanceId, "install-1", "abc123", "node-a", "run-42");
 
-        labels.Should().ContainKey("reeve.io/scan-node").WhoseValue.Should().Be("node-a");
-        labels.Should().ContainKey("reeve.io/scan-run").WhoseValue.Should().Be("run-42");
+        labels.Should().ContainKey("reeve-iot.dev/scan-node").WhoseValue.Should().Be("node-a");
+        labels.Should().ContainKey("reeve-iot.dev/scan-run").WhoseValue.Should().Be("run-42");
     }
 
     [Fact]
     public void The_suspend_selector_still_names_a_key_no_node_carries()
     {
-        WorkloadResourceNaming.SuspendSelectorKey("22222222").Should().Be("reeve.io/suspended-22222222");
+        WorkloadResourceNaming.SuspendSelectorKey("22222222").Should().Be("reeve-iot.dev/suspended-22222222");
 
         WorkloadResourceNaming.SuspendNodeSelector("22222222")
-            .Should().Equal(new Dictionary<string, string> { ["reeve.io/suspended-22222222"] = "true" });
+            .Should().Equal(new Dictionary<string, string> { ["reeve-iot.dev/suspended-22222222"] = "true" });
     }
 
     [Theory]

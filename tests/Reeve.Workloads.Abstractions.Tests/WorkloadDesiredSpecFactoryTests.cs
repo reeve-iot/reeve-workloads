@@ -1554,14 +1554,14 @@ public sealed class WorkloadDesiredSpecFactoryTests
             Parameters = new[]
             {
                 new WorkloadParameter { Name = "serialPort", Type = WorkloadParameterType.DevicePath },
-                new WorkloadParameter { Name = "nodeSelector", Type = WorkloadParameterType.NodeSelector, Default = "reeve.io/ble=true" },
+                new WorkloadParameter { Name = "nodeSelector", Type = WorkloadParameterType.NodeSelector, Default = "reeve-iot.dev/ble=true" },
             },
         };
         var resolved = WorkloadParameterResolver.Resolve(
             wl, new Dictionary<string, string?> { ["serialPort"] = "/dev/ttyUSB0" }, StandInProviders.Kubernetes);
         var spec = Compute(wl, resolved: resolved);
 
-        spec.NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve.io/ble"] = "true" });
+        spec.NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" });
     }
 
     [Fact]
@@ -1576,11 +1576,11 @@ public sealed class WorkloadDesiredSpecFactoryTests
             },
         };
         var resolved = WorkloadParameterResolver.Resolve(
-            wl, new Dictionary<string, string?> { ["serialPort"] = "/dev/ttyUSB0", ["nodeSelector"] = "reeve.io/zwave" },
+            wl, new Dictionary<string, string?> { ["serialPort"] = "/dev/ttyUSB0", ["nodeSelector"] = "reeve-iot.dev/zwave" },
             StandInProviders.Kubernetes);
         var spec = Compute(wl, resolved: resolved);
 
-        spec.NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve.io/zwave"] = "true" });
+        spec.NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve-iot.dev/zwave"] = "true" });
     }
 
     [Fact]
@@ -1635,15 +1635,15 @@ public sealed class WorkloadDesiredSpecFactoryTests
             Parameters = new[]
             {
                 new WorkloadParameter { Name = "serialPort", Type = WorkloadParameterType.DevicePath },
-                new WorkloadParameter { Name = "authorPlacement", Type = WorkloadParameterType.NodeSelector, Default = "reeve.io/ble=true" },
+                new WorkloadParameter { Name = "authorPlacement", Type = WorkloadParameterType.NodeSelector, Default = "reeve-iot.dev/ble=true" },
             },
         };
         var resolved = WorkloadParameterResolver.Resolve(
             wl,
-            new Dictionary<string, string?> { ["serialPort"] = "/dev/ttyUSB0", ["nodeSelector"] = "reeve.io/ble=false" },
+            new Dictionary<string, string?> { ["serialPort"] = "/dev/ttyUSB0", ["nodeSelector"] = "reeve-iot.dev/ble=false" },
             StandInProviders.Kubernetes);
 
-        Compute(wl, resolved: resolved).NodeSelector["reeve.io/ble"].Should().Be("false");
+        Compute(wl, resolved: resolved).NodeSelector["reeve-iot.dev/ble"].Should().Be("false");
     }
 
     [Fact]
@@ -1654,11 +1654,11 @@ public sealed class WorkloadDesiredSpecFactoryTests
             Parameters = new[]
             {
                 new WorkloadParameter { Name = "serialPort", Type = WorkloadParameterType.DevicePath },
-                new WorkloadParameter { Name = "authorPlacement", Type = WorkloadParameterType.NodeSelector, Default = "reeve.io/ble=true" },
+                new WorkloadParameter { Name = "authorPlacement", Type = WorkloadParameterType.NodeSelector, Default = "reeve-iot.dev/ble=true" },
             },
         };
 
-        Compute(wl).NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve.io/ble"] = "true" });
+        Compute(wl).NodeSelector.Should().Equal(new Dictionary<string, string> { ["reeve-iot.dev/ble"] = "true" });
     }
 
     [Fact]
@@ -1681,9 +1681,9 @@ public sealed class WorkloadDesiredSpecFactoryTests
             return Compute(wl, resolved: resolved);
         }
 
-        var ble = WithSelector("reeve.io/ble=true");
-        var ble2 = WithSelector("reeve.io/ble=true");
-        var zwave = WithSelector("reeve.io/zwave=true");
+        var ble = WithSelector("reeve-iot.dev/ble=true");
+        var ble2 = WithSelector("reeve-iot.dev/ble=true");
+        var zwave = WithSelector("reeve-iot.dev/zwave=true");
         var none = WithSelector(null);
 
         ble.SpecHash.Should().Be(ble2.SpecHash, "the same selector must hash identically (deterministic)");

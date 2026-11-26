@@ -20,10 +20,10 @@ namespace Reeve.Workloads.Providers.Kubernetes.Tests;
 public sealed class KubernetesObjectClientSuspendJobsTests
 {
     private const string Namespace = "reeve";
-    private const string ExpectedSelector = "reeve.io/workload-instance=11111111";
+    private const string ExpectedSelector = "reeve-iot.dev/workload-instance=11111111";
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
 
     private static KubernetesObjectClient NewClient() =>
         new(NullLogger<KubernetesObjectClient>.Instance);
@@ -160,7 +160,7 @@ public sealed class KubernetesObjectClientSuspendJobsTests
     private static V1Job Job(string name, int? active = null, int? succeeded = null, int? failed = null, bool? suspend = null)
         => new()
         {
-            Metadata = new V1ObjectMeta { Name = name, Labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" } },
+            Metadata = new V1ObjectMeta { Name = name, Labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" } },
             Spec = suspend is null ? null : new V1JobSpec { Suspend = suspend, Template = new V1PodTemplateSpec() },
             Status = new V1JobStatus { Active = active, Succeeded = succeeded, Failed = failed },
         };

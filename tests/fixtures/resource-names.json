@@ -234,27 +234,27 @@
   ],
   "labels": [
     {
-      "reeve.io/workload-instance": "22222222-3333-4444-5555-666666666666",
-      "reeve.io/installation": "install-1",
-      "reeve.io/spec-hash": "abc123"
+      "reeve-iot.dev/workload-instance": "22222222-3333-4444-5555-666666666666",
+      "reeve-iot.dev/installation": "install-1",
+      "reeve-iot.dev/spec-hash": "abc123"
     },
     {
-      "reeve.io/workload-instance": "22222222-3333-4444-5555-666666666666",
-      "reeve.io/installation": "install-id-with-spaces",
-      "reeve.io/spec-hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffff-df0790",
-      "reeve.io/criticality": "critical"
+      "reeve-iot.dev/workload-instance": "22222222-3333-4444-5555-666666666666",
+      "reeve-iot.dev/installation": "install-id-with-spaces",
+      "reeve-iot.dev/spec-hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffff-df0790",
+      "reeve-iot.dev/criticality": "critical"
     },
     {
-      "reeve.io/workload-instance": "22222222-3333-4444-5555-666666666666",
-      "reeve.io/installation": "x",
-      "reeve.io/spec-hash": "0123456789abcdef0123456789abcdef0123456789abcdef01234567-a8ae6e",
-      "reeve.io/criticality": "recoverable"
+      "reeve-iot.dev/workload-instance": "22222222-3333-4444-5555-666666666666",
+      "reeve-iot.dev/installation": "x",
+      "reeve-iot.dev/spec-hash": "0123456789abcdef0123456789abcdef0123456789abcdef01234567-a8ae6e",
+      "reeve-iot.dev/criticality": "recoverable"
     }
   ],
   "selector": {
-    "reeve.io/workload-instance": "22222222-3333-4444-5555-666666666666"
+    "reeve-iot.dev/workload-instance": "22222222-3333-4444-5555-666666666666"
   },
   "dockerSelector": {
-    "io.reeve.workload-instance": "22222222-3333-4444-5555-666666666666"
+    "dev.reeve-iot.workload-instance": "22222222-3333-4444-5555-666666666666"
   }
 }

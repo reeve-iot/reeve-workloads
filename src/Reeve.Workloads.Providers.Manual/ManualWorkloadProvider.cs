@@ -113,7 +113,7 @@ internal sealed class ManualWorkloadProvider : IWorkloadProvider
     {
         var guidance = WorkloadLogLine.Line(
             $"Manual mode: Reeve cannot fetch logs for this workload — run `docker logs reeve-wl-{reference.Inst8}` " +
-            $"(or `kubectl logs -l reeve.io/workload-instance={reference.InstanceId}`) on the host where you deployed it.");
+            $"(or `kubectl logs -l reeve-iot.dev/workload-instance={reference.InstanceId}`) on the host where you deployed it.");
 
         return Task.FromResult(new WorkloadLogs { Lines = new[] { guidance } });
     }

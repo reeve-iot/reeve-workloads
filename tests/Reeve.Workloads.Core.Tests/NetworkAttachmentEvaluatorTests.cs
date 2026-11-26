@@ -233,7 +233,7 @@ public sealed class NetworkAttachmentEvaluatorTests
             Request(KubernetesProvider.Id.Value, exists: true) with
             {
                 Kind = WorkloadKind.PerNode,
-                NodeEligibilitySelector = new Dictionary<string, string> { ["reeve.io/iot-vlan"] = "true" },
+                NodeEligibilitySelector = new Dictionary<string, string> { ["reeve-iot.dev/iot-vlan"] = "true" },
             });
 
         evaluation.Checks.Single(c => c.Id == NetworkAttachmentCheckIds.NodeEligibility).Passed.Should().BeTrue();
@@ -283,7 +283,7 @@ public sealed class NetworkAttachmentEvaluatorTests
             Provider = WorkloadProviderId.Parse(provider),
             Mode = WorkloadNetworkMode.OperatorNetwork,
             Kind = WorkloadKind.Service,
-            NodeEligibilitySelector = new Dictionary<string, string> { ["reeve.io/iot-vlan"] = "true" },
+            NodeEligibilitySelector = new Dictionary<string, string> { ["reeve-iot.dev/iot-vlan"] = "true" },
             Attachments = [new NetworkAttachmentObservation { Name = AttachmentName, Exists = exists }],
         };
 

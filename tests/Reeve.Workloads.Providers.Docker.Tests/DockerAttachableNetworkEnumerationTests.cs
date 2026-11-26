@@ -97,7 +97,7 @@ public sealed class DockerAttachableNetworkEnumerationTests
             .ToList();
 
         constantValues.Should().NotContain("network-generator");
-        constantValues.Should().NotContain("io.reeve.created-by");
+        constantValues.Should().NotContain("dev.reeve-iot.created-by");
     }
 
     private static IDockerClient ClientReturning(IList<NetworkResponse> networks)

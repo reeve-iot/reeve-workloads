@@ -6,7 +6,7 @@ using Reeve.Workloads.Abstractions.Providers;
 namespace Reeve.Workloads.Domain;
 
 /// <summary>The namer every provider gets unless it ships one of its own: RFC 1123 object names under the
-/// <c>reeve-wl-</c> prefix, one claim-shaped name per volume, and the <c>reeve.io/*</c> label set.</summary>
+/// <c>reeve-wl-</c> prefix, one claim-shaped name per volume, and the <c>reeve-iot.dev/*</c> label set.</summary>
 /// <remarks>
 /// <para>
 /// The names are persisted and address live objects, so the output is byte-stable.

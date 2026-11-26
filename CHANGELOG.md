@@ -6,6 +6,22 @@ All notable changes to this project are documented in this file. The format foll
 
 ## Unreleased
 
+## 1.2.0 - 2026-11-26
+
+### Breaking changes
+
+- Kubernetes labels and annotations use the `reeve-iot.dev/` prefix instead of `reeve.io/`: `workload-instance`,
+  `criticality`, `installation`, `managed-by`, `spec-hash`, `scan-node`, `scan-run`, `suspended-{inst8}`,
+  `restart-generation` and `credential-digest`.
+- Docker labels use the `dev.reeve-iot.` prefix instead of `io.reeve.`: `workload-instance`, `workload-id`,
+  `installation`, `managed-by`, `spec-hash`, `restart-nonce`, `unhashed-env-digest`, `credential-digest`,
+  `plugin-type-id`, `device-discovery`, `volume-ownership`, `volume-ownership.instance` and the `metrics.*` labels.
+- The keys are public constants, so a host or plugin picks up the new keys only when it is rebuilt against 1.2.0.
+- Upgrading an existing installation: before starting the upgraded host, delete the workload Deployments,
+  DaemonSets, Jobs and Docker containers; the host creates them again with the new keys. Persistent volume claims
+  and Docker volumes are kept and reused by name, and claims get the new labels on the next apply. A Docker volume
+  created before 1.2.0 keeps the old labels, so deleting its instance does not remove it; remove it by hand.
+
 ## 1.1.0 - 2026-11-26
 
 ### Breaking changes

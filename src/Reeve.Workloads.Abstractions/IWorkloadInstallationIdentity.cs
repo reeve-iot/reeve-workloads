@@ -1,6 +1,6 @@
 namespace Reeve.Workloads.Abstractions;
 
-/// <summary>Resolves THIS installation's stable id, stamped into the <c>reeve.io/installation</c> label
+/// <summary>Resolves THIS installation's stable id, stamped into the <c>reeve-iot.dev/installation</c> label
 /// on every materialized workload object. MUST stay stable across restarts/migrations — the DR adoption path uses it to tell this installation's retained resources from a foreign one's.</summary>
 public interface IWorkloadInstallationIdentity
 {

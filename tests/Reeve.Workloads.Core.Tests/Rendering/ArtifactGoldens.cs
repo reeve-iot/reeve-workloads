@@ -225,26 +225,26 @@ internal static class ArtifactGoldens
         kind: Deployment
         metadata:
           labels:
-            reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
-            reeve.io/installation: install-1
-            reeve.io/spec-hash: abc123def456
+            reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
+            reeve-iot.dev/installation: install-1
+            reeve-iot.dev/spec-hash: abc123def456
           name: reeve-wl-com-reeve-matter-matter-11111111
           namespace: reeve
         spec:
           replicas: 1
           selector:
             matchLabels:
-              reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
+              reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
           strategy:
             type: Recreate
           template:
             metadata:
               annotations:
-                reeve.io/spec-hash: abc123def456
+                reeve-iot.dev/spec-hash: abc123def456
               labels:
-                reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
-                reeve.io/installation: install-1
-                reeve.io/spec-hash: abc123def456
+                reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
+                reeve-iot.dev/installation: install-1
+                reeve-iot.dev/spec-hash: abc123def456
             spec:
               containers:
               - env:
@@ -277,26 +277,26 @@ internal static class ArtifactGoldens
         kind: Deployment
         metadata:
           labels:
-            reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
-            reeve.io/installation: install-1
-            reeve.io/spec-hash: abc123def456
+            reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
+            reeve-iot.dev/installation: install-1
+            reeve-iot.dev/spec-hash: abc123def456
           name: reeve-wl-com-reeve-matter-matter-11111111
           namespace: reeve
         spec:
           replicas: 1
           selector:
             matchLabels:
-              reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
+              reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
           strategy:
             type: Recreate
           template:
             metadata:
               annotations:
-                reeve.io/spec-hash: abc123def456
+                reeve-iot.dev/spec-hash: abc123def456
               labels:
-                reeve.io/workload-instance: 11111111-2222-3333-4444-555555555555
-                reeve.io/installation: install-1
-                reeve.io/spec-hash: abc123def456
+                reeve-iot.dev/workload-instance: 11111111-2222-3333-4444-555555555555
+                reeve-iot.dev/installation: install-1
+                reeve-iot.dev/spec-hash: abc123def456
             spec:
               containers:
               - env:

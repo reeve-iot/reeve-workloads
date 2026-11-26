@@ -57,7 +57,7 @@ public sealed class WorkloadUpdateIntentTests
     private static WorkloadDesiredSpec Spec(string workloadId) => new()
     {
         GroupInstanceId = Guid.Parse("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
-        GroupId = "smarthome",
+        GroupId = "reeve",
         WorkloadId = workloadId,
         InstanceId = Guid.Parse("12345678-0000-0000-0000-000000000000"),
         Inst8 = "12345678",

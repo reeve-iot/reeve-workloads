@@ -31,7 +31,7 @@ public sealed class ManualWorkloadProviderTests
         Provider = ManualProvider.Id,
         ResourceName = "reeve-wl-com-reeve-matter-matter-11111111",
         SecretName = "reeve-wl-com-reeve-matter-matter-11111111",
-        Labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = InstanceId.ToString() },
+        Labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = InstanceId.ToString() },
         Image = "ghcr.io/reeve/matter@sha256:1111111111111111111111111111111111111111111111111111111111111111",
         Kind = WorkloadKind.SingleNode,
         Health = new WorkloadHealth { Mode = new WorkloadHealthMode("adapter-session"), HeartbeatSeconds = 30 },

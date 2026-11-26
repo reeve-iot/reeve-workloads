@@ -20,7 +20,7 @@ public sealed class WorkloadDockerEventSourceTests
 {
     private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(5);
     private static readonly Guid InstanceX = Guid.Parse("11111111-1111-1111-1111-111111111111");
-    private const string LabelKey = "io.reeve.workload-instance";
+    private const string LabelKey = "dev.reeve-iot.workload-instance";
 
     [Theory]
     [InlineData("die")]
@@ -51,7 +51,7 @@ public sealed class WorkloadDockerEventSourceTests
         attempt.Report(ContainerEvent("die", "com.example.other", "whatever"));
 
         await Task.Delay(50);
-        h.Sink.DirtyInstances.Should().BeEmpty("an event without the io.reeve.workload-instance label maps to no instance");
+        h.Sink.DirtyInstances.Should().BeEmpty("an event without the dev.reeve-iot.workload-instance label maps to no instance");
     }
 
     [Fact]

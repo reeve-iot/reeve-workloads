@@ -144,7 +144,7 @@ internal sealed class DockerWorkloadOrphanService(
 /// carrying a DIFFERENT installation label.</summary>
 public sealed record WorkloadOrphan
 {
-    /// <summary>The <c>io.reeve.workload-instance</c> label value — the grouping and purge key.</summary>
+    /// <summary>The <c>dev.reeve-iot.workload-instance</c> label value — the grouping and purge key.</summary>
     public required Guid InstanceId { get; init; }
 
     /// <summary>Container names, without docker's leading slash. Convenience for the operator; never identity.</summary>
@@ -159,7 +159,7 @@ public sealed record WorkloadOrphan
     /// <summary>The manifest workload id (e.g. <c>simulator</c>), when the label is present.</summary>
     public string? WorkloadId { get; init; }
 
-    /// <summary>The <c>io.reeve.installation</c> label the container carries, when it is NOT this installation's; null for an ordinary orphan. See <see cref="IsForeign"/>.</summary>
+    /// <summary>The <c>dev.reeve-iot.installation</c> label the container carries, when it is NOT this installation's; null for an ordinary orphan. See <see cref="IsForeign"/>.</summary>
     public string? ForeignInstallationId { get; init; }
 
     /// <summary>True when the container was created by a different installation id. Two situations produce this

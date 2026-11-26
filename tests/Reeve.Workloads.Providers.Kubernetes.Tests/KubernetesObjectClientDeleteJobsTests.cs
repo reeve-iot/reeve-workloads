@@ -20,10 +20,10 @@ public sealed class KubernetesObjectClientDeleteJobsTests
 {
     private const string Namespace = "reeve";
     private const string InstanceValue = "11111111";
-    private const string ExpectedInstanceSelector = "reeve.io/workload-instance=11111111";
+    private const string ExpectedInstanceSelector = "reeve-iot.dev/workload-instance=11111111";
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = InstanceValue };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = InstanceValue };
 
     private static KubernetesObjectClient NewClient() =>
         new(NullLogger<KubernetesObjectClient>.Instance);
@@ -301,7 +301,7 @@ public sealed class KubernetesObjectClientDeleteJobsTests
 
         private static V1Job MakeJob(string name, string? runId)
         {
-            var labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = InstanceValue };
+            var labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = InstanceValue };
             if (runId is not null)
             {
                 labels[WorkloadResourceLabels.ScanRunLabelKey] = runId;

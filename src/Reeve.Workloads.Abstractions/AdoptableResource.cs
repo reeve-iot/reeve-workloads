@@ -31,11 +31,11 @@ public enum AdoptableResourceKind
 [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.JsonStringEnumConverter<AdoptionClass>))]
 public enum AdoptionClass
 {
-    /// <summary>Carries <c>reeve.io/workload-instance</c> but a FOREIGN <c>reeve.io/installation</c> id — a previous
+    /// <summary>Carries <c>reeve-iot.dev/workload-instance</c> but a FOREIGN <c>reeve-iot.dev/installation</c> id — a previous
     /// installation's retained fabric/Thread/bindkey data after DB loss.</summary>
     ForeignInstallation = 0,
 
-    /// <summary>Operator-deployed artifacts carrying <c>reeve.io/managed-by: operator</c> plus the labels Reeve
+    /// <summary>Operator-deployed artifacts carrying <c>reeve-iot.dev/managed-by: operator</c> plus the labels Reeve
     /// renders — the manual→kubernetes provider-switch path.</summary>
     ManualManaged = 1,
 }
@@ -64,15 +64,15 @@ public sealed record AdoptableResource
     /// <summary>The observed container image for a Deployment/DaemonSet's first container; null for a Service/PVC.</summary>
     public string? Image { get; init; }
 
-    /// <summary>The <c>reeve.io/workload-instance</c> label value (the grouping key); empty when absent.</summary>
+    /// <summary>The <c>reeve-iot.dev/workload-instance</c> label value (the grouping key); empty when absent.</summary>
     public string InstanceLabel =>
         Labels.TryGetValue(Reeve.Workloads.Abstractions.Domain.WorkloadResourceLabels.InstanceLabelKey, out var v) ? v : string.Empty;
 
-    /// <summary>The <c>reeve.io/installation</c> label value; null when absent.</summary>
+    /// <summary>The <c>reeve-iot.dev/installation</c> label value; null when absent.</summary>
     public string? InstallationLabel =>
         Labels.TryGetValue(Reeve.Workloads.Abstractions.Domain.WorkloadResourceLabels.InstallationLabelKey, out var v) ? v : null;
 
-    /// <summary>True when the object carries <c>reeve.io/managed-by: operator</c> (the manual→managed marker).</summary>
+    /// <summary>True when the object carries <c>reeve-iot.dev/managed-by: operator</c> (the manual→managed marker).</summary>
     public bool IsOperatorManaged =>
         Labels.TryGetValue(WorkloadAdoptionLabels.ManagedByLabelKey, out var v)
         && string.Equals(v, WorkloadAdoptionLabels.ManagedByOperatorValue, StringComparison.Ordinal);
@@ -82,10 +82,10 @@ public sealed record AdoptableResource
 /// <c>WorkloadResourceNaming</c>: the manual→managed marker and the stripped Helm/Argo metadata.</summary>
 public static class WorkloadAdoptionLabels
 {
-    /// <summary>The <c>reeve.io/managed-by</c> label key — <c>operator</c> marks a manual→managed candidate.</summary>
-    public const string ManagedByLabelKey = "reeve.io/managed-by";
+    /// <summary>The <c>reeve-iot.dev/managed-by</c> label key — <c>operator</c> marks a manual→managed candidate.</summary>
+    public const string ManagedByLabelKey = "reeve-iot.dev/managed-by";
 
-    /// <summary>The <c>reeve.io/managed-by</c> value for operator-deployed manual artifacts.</summary>
+    /// <summary>The <c>reeve-iot.dev/managed-by</c> value for operator-deployed manual artifacts.</summary>
     public const string ManagedByOperatorValue = "operator";
 
     /// <summary>Helm release-name annotation stripped on adoption.</summary>

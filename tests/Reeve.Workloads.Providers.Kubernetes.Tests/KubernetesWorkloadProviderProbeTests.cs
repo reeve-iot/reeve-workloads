@@ -167,18 +167,18 @@ public sealed class KubernetesWorkloadProviderProbeTests
     public async Task Blank_namespace_in_cluster_probes_the_pods_own_namespace()
     {
         var inspector = new FakeInspector(new KubernetesClusterInspection { ApiReachable = true });
-        var probe = Build(inspector, podNamespace: "smarthome");
+        var probe = Build(inspector, podNamespace: "pod-ns");
 
         await probe.ProbeAsync(InClusterSettings(ns: null));
 
-        inspector.LastNamespace.Should().Be("smarthome");
+        inspector.LastNamespace.Should().Be("pod-ns");
     }
 
     [Fact]
     public async Task Blank_namespace_with_none_to_fall_back_on_reports_the_namespace_and_not_a_connection_failure()
     {
         var inspector = new FakeInspector(new KubernetesClusterInspection { ApiReachable = true });
-        var probe = Build(inspector, podNamespace: "smarthome");
+        var probe = Build(inspector, podNamespace: "pod-ns");
 
         var result = await probe.ProbeAsync(RemoteSettings(SelfContainedKubeconfig, ns: null));
 

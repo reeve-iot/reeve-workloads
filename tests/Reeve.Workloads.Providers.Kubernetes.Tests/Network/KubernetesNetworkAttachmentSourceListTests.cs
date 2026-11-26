@@ -93,7 +93,7 @@ public sealed class KubernetesNetworkAttachmentSourceListTests
     [InlineData("  ")]
     public async Task A_blank_namespace_in_cluster_lists_the_pods_own_namespace(string? @namespace)
     {
-        var (source, client, _) = Build(podNamespace: "smarthome");
+        var (source, client, _) = Build(podNamespace: "pod-ns");
         Answers(client, KubernetesNetworkAttachmentListResult.Populated(
             [new KubernetesNetworkAttachment { Name = "iot-macvlan" }]));
 
@@ -102,13 +102,13 @@ public sealed class KubernetesNetworkAttachmentSourceListTests
         response.UnavailableReason.Should().BeNull();
         response.Items.Should().ContainSingle().Which.Name.Should().Be("iot-macvlan");
         await client.Received(1).ListNetworkAttachmentDefinitionsAsync(
-            Arg.Any<IKubernetes>(), "smarthome", Arg.Any<CancellationToken>());
+            Arg.Any<IKubernetes>(), "pod-ns", Arg.Any<CancellationToken>());
     }
 
     [Fact]
     public async Task A_blank_namespace_on_a_remote_kubeconfig_is_still_provider_unavailable()
     {
-        var (source, client, _) = Build(podNamespace: "smarthome");
+        var (source, client, _) = Build(podNamespace: "pod-ns");
         var settings = new WorkloadOrchestratorSettings { Provider = KubernetesProvider.Id }
             .WithProvider(KubernetesProvider.Id, new KubernetesProviderSettings
             {

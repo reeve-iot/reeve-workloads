@@ -22,7 +22,7 @@ public sealed class KubernetesObjectClientReadWorkloadTests
         new(NullLogger<KubernetesObjectClient>.Instance);
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
 
     private static HttpOperationResponse<T> Response<T>(T body) =>
         new() { Body = body, Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.OK) };

@@ -9,7 +9,7 @@ using Reeve.Workloads.Abstractions.Contracts;
 namespace Reeve.Workloads.EntityFrameworkCore.Persistence;
 
 /// <summary>The workloads model, in its own context and its own schema. It deliberately does NOT extend
-/// SmartHomeDbContext: sharing a model is what makes the boundary unenforceable.</summary>
+/// the host's own DbContext: sharing a model is what makes the boundary unenforceable.</summary>
 public class WorkloadsDbContext : DbContext
 {
     private readonly WorkloadsStoreOptions _storeOptions;

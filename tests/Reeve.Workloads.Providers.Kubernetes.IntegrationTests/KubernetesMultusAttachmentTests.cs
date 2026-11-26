@@ -49,7 +49,7 @@ public sealed class KubernetesMultusAttachmentTests
 
     private const string HelperImage = "busybox:1.36";
 
-    private const string TestJobLabelKey = "reeve.io/e2e-multus";
+    private const string TestJobLabelKey = "reeve-iot.dev/e2e-multus";
 
     private readonly ITestOutputHelper _output;
 
@@ -568,7 +568,7 @@ public sealed class KubernetesMultusAttachmentTests
             Provider = KubernetesProvider.Id,
             Mode = WorkloadNetworkMode.OperatorNetwork,
             Kind = WorkloadKind.Service,
-            NodeEligibilitySelector = new Dictionary<string, string> { ["reeve.io/iot-vlan"] = "true" },
+            NodeEligibilitySelector = new Dictionary<string, string> { ["reeve-iot.dev/iot-vlan"] = "true" },
             Attachments = [new NetworkAttachmentObservation { Name = name, Exists = exists }],
         };
 

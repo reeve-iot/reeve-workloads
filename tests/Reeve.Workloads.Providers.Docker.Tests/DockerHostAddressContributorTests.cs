@@ -15,7 +15,7 @@ public sealed class DockerHostAddressContributorTests
 
     [Theory]
     [InlineData("reeve-backend", 8080, "reeve-backend:8080")]
-    [InlineData("smarthome-api", 80, "smarthome-api:80")]
+    [InlineData("reeve-api", 80, "reeve-api:80")]
     public void It_answers_name_colon_port(string name, int port, string expected)
         => contributor.AddressOf(new HostEndpoint(name, port)).Should().Be(expected);
 

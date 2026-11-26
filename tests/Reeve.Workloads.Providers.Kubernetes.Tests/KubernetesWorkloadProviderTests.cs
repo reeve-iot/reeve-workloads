@@ -970,14 +970,14 @@ public sealed class KubernetesWorkloadProviderTests
     {
         var objectClient = new FakeObjectClient();
         var provider = Build(
-            objectClient, new RecordingCredentialPort(), new FakeSettingsService { Namespace = null }, podNamespace: "smarthome");
+            objectClient, new RecordingCredentialPort(), new FakeSettingsService { Namespace = null }, podNamespace: "pod-ns");
 
         var result = await provider.ApplyAsync(Spec(), progress: null);
 
         result.Succeeded.Should().BeTrue();
         using var manifest = System.Text.Json.JsonDocument.Parse(objectClient.LastDeploymentManifest!);
-        manifest.RootElement.GetProperty("metadata").GetProperty("namespace").GetString().Should().Be("smarthome");
-        objectClient.LastDeploymentNamespace.Should().Be("smarthome");
+        manifest.RootElement.GetProperty("metadata").GetProperty("namespace").GetString().Should().Be("pod-ns");
+        objectClient.LastDeploymentNamespace.Should().Be("pod-ns");
     }
 
     [Fact]
@@ -1331,7 +1331,7 @@ public sealed class KubernetesWorkloadProviderTests
     [Fact]
     public async Task Preflight_threads_the_specs_node_eligibility_selector_into_the_node_read_and_DISCARDS_the_excluded_side()
     {
-        var selector = new Dictionary<string, string> { ["reeve.io/vlan100"] = "true" };
+        var selector = new Dictionary<string, string> { ["reeve-iot.dev/vlan100"] = "true" };
         var objectClient = new FakeObjectClient
         {
             ReadyNodeNames = new[] { "node-a", "node-b" },

@@ -19,7 +19,7 @@ public sealed class KubernetesObjectClientPvcRecreateTests
 {
     private const string Namespace = "reeve";
     private const string ClaimName = "reeve-wl-matter-data-11111111";
-    private const string InstanceLabel = "reeve.io/workload-instance";
+    private const string InstanceLabel = "reeve-iot.dev/workload-instance";
     private const string InstanceId = "11111111-1111-1111-1111-111111111111";
 
     private static KubernetesObjectClient NewClient() => new(NullLogger<KubernetesObjectClient>.Instance);

@@ -65,8 +65,8 @@ public static class WorkloadResourceNaming
             NodeDiscriminator(nodeName),
             Sanitize(runId));
 
-    /// <summary>The per-node suspend selector key: <c>reeve.io/suspended-{inst8}</c> — matches no node.</summary>
-    public static string SuspendSelectorKey(string inst8) => $"reeve.io/suspended-{NormalizeInst8(inst8)}";
+    /// <summary>The per-node suspend selector key: <c>reeve-iot.dev/suspended-{inst8}</c> — matches no node.</summary>
+    public static string SuspendSelectorKey(string inst8) => $"reeve-iot.dev/suspended-{NormalizeInst8(inst8)}";
 
     /// <summary>The SINGLE source of truth for the physical name a RETAINED volume lives under. An adopted
     /// <c>existingClaim</c> wins verbatim; otherwise the provider's own namer answers.</summary>
@@ -171,7 +171,7 @@ public static class WorkloadResourceNaming
     /// reaper's <c>notin</c> delete-selector and the label the Jobs actually carry share one transform.</summary>
     public static string ScanRunLabelValue(string runId) => TruncateForDns(Sanitize(runId));
 
-    /// <summary>The per-node suspend nodeSelector fragment: <c>{ reeve.io/suspended-{inst8} = "true" }</c>.</summary>
+    /// <summary>The per-node suspend nodeSelector fragment: <c>{ reeve-iot.dev/suspended-{inst8} = "true" }</c>.</summary>
     public static IReadOnlyDictionary<string, string> SuspendNodeSelector(string inst8)
         => new Dictionary<string, string> { [SuspendSelectorKey(inst8)] = "true" };
 

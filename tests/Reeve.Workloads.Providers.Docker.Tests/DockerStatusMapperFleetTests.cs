@@ -191,7 +191,7 @@ public sealed class DockerStatusMapperFleetTests
         Created = DateTime.UtcNow,
         Labels = new Dictionary<string, string>
         {
-            ["io.reeve.workload-instance"] = instanceId.ToString("D"),
+            ["dev.reeve-iot.workload-instance"] = instanceId.ToString("D"),
         },
     };
 

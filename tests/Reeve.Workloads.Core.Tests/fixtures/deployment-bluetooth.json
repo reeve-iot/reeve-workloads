@@ -69,7 +69,7 @@
           "displayName": "BLE node",
           "description": "Node whose Bluetooth dongle to use",
           "required": true,
-          "default": "reeve.io/ble=true"
+          "default": "reeve-iot.dev/ble=true"
         },
         {
           "name": "adapterName",

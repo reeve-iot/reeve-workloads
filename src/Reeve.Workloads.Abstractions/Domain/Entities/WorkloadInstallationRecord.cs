@@ -2,7 +2,7 @@ namespace Reeve.Workloads.Abstractions.Domain.Entities;
 
 /// <summary>This installation's stable id, as a row. One row, ever: the key is a constant, so two replicas
 /// racing to mint one collide on the primary key instead of both writing a value.</summary>
-/// <remarks>Stamped into the <c>reeve.io/installation</c> label on every materialized workload object, and the
+/// <remarks>Stamped into the <c>reeve-iot.dev/installation</c> label on every materialized workload object, and the
 /// anchor the DR adoption path uses to tell this installation's retained resources from a foreign one's. It
 /// lives in the workloads context rather than a host settings table because the label is the library's and an
 /// id that moves with the host's settings store is an id that can be lost without the label noticing.</remarks>

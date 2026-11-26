@@ -45,7 +45,7 @@ public sealed class WorkloadResourceNamingTests
     [Fact]
     public void Suspend_selector_key_golden()
     {
-        WorkloadResourceNaming.SuspendSelectorKey(Inst8).Should().Be("reeve.io/suspended-abcdef12");
+        WorkloadResourceNaming.SuspendSelectorKey(Inst8).Should().Be("reeve-iot.dev/suspended-abcdef12");
     }
 
     [Fact]

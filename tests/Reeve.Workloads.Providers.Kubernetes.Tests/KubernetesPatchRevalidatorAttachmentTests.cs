@@ -137,7 +137,7 @@ public sealed class KubernetesPatchRevalidatorAttachmentTests
             spec,
             """
             [{"op":"add","path":"/spec/template/metadata/annotations","value":{
-              "reeve.io/spec-hash":"abc123def456",
+              "reeve-iot.dev/spec-hash":"abc123def456",
               "k8s.v1.cni.cncf.io/networks":"reeve-vlan100"
             }}]
             """);
@@ -243,15 +243,15 @@ public sealed class KubernetesPatchRevalidatorAttachmentTests
         var spec = ClusterModeSpec();
         var patched = Applier.Apply(Render(spec), """
             [{"op":"replace","path":"/spec/template/metadata/annotations","value":{
-              "reeve.io/restart-generation":"7",
+              "reeve-iot.dev/restart-generation":"7",
               "prometheus.io/scrape":"true"
             }}]
             """);
 
         var annotations = PodTemplateAnnotations(patched);
-        annotations.Should().ContainKey("reeve.io/restart-generation");
+        annotations.Should().ContainKey("reeve-iot.dev/restart-generation");
         annotations.Should().ContainKey("prometheus.io/scrape");
-        annotations.Should().NotContainKey("reeve.io/spec-hash");
+        annotations.Should().NotContainKey("reeve-iot.dev/spec-hash");
 
         Revalidator.Validate(spec, patched).Should().BeEmpty();
     }
@@ -309,7 +309,7 @@ public sealed class KubernetesPatchRevalidatorAttachmentTests
 
         var violations = ValidatePatched(spec, """
             [{"op":"replace","path":"/spec/template/metadata/annotations","value":{
-              "reeve.io/spec-hash":"abc123def456"
+              "reeve-iot.dev/spec-hash":"abc123def456"
             }}]
             """);
 

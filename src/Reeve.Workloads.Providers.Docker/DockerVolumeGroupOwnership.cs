@@ -18,7 +18,7 @@ internal interface IDockerVolumeGroupOwnership
 
 internal sealed class DockerVolumeGroupOwnership : IDockerVolumeGroupOwnership
 {
-    public const string HelperMarkerLabelKey = "io.reeve.volume-ownership";
+    public const string HelperMarkerLabelKey = "dev.reeve-iot.volume-ownership";
 
     public const string HelperMarkerLabelValue = "fs-group";
 
@@ -30,7 +30,7 @@ internal sealed class DockerVolumeGroupOwnership : IDockerVolumeGroupOwnership
     private const long HelperPidsLimit = 64;
     private const long HelperNanoCpus = 500_000_000;
 
-    public const string HelperInstanceLabelKey = "io.reeve.volume-ownership.instance";
+    public const string HelperInstanceLabelKey = "dev.reeve-iot.volume-ownership.instance";
 
     private readonly TimeSpan _runTimeout;
 

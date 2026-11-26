@@ -28,17 +28,17 @@ public interface IWorkloadAdoptionService
         CancellationToken cancellationToken = default);
 }
 
-/// <summary>Every labelled object sharing one <c>reeve.io/workload-instance</c> value, plus its classification.
+/// <summary>Every labelled object sharing one <c>reeve-iot.dev/workload-instance</c> value, plus its classification.
 /// Detection is by label only: <see cref="InstanceLabel"/> is authority and names are convenience.</summary>
 public sealed record AdoptionCandidate
 {
-    /// <summary>The shared <c>reeve.io/workload-instance</c> label value (the grouping + adoption key).</summary>
+    /// <summary>The shared <c>reeve-iot.dev/workload-instance</c> label value (the grouping + adoption key).</summary>
     public required string InstanceLabel { get; init; }
 
     /// <summary>Whether this candidate is a DR/foreign-installation (b) or manual→managed (c) adoption.</summary>
     public required AdoptionClass Class { get; init; }
 
-    /// <summary>The <c>reeve.io/installation</c> label value carried by the resources; null when absent.</summary>
+    /// <summary>The <c>reeve-iot.dev/installation</c> label value carried by the resources; null when absent.</summary>
     public string? InstallationLabel { get; init; }
 
     /// <summary>Every live object (Deployment/DaemonSet/Service/PVC) in the group.</summary>

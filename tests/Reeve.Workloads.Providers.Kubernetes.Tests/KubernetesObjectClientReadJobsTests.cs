@@ -20,7 +20,7 @@ public sealed class KubernetesObjectClientReadJobsTests
     private const string DeploymentName = "reeve-wl-matter-11111111";
 
     private static readonly IReadOnlyDictionary<string, string> Selector =
-        new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
 
     private static KubernetesObjectClient NewClient() =>
         new(NullLogger<KubernetesObjectClient>.Instance);
@@ -176,10 +176,10 @@ public sealed class KubernetesObjectClientReadJobsTests
     private static V1Job MakeJob(
         string name, V1JobStatus? status, string? nodeLabel = null, string? pinnedNode = null, bool? suspend = null)
     {
-        var labels = new Dictionary<string, string> { ["reeve.io/workload-instance"] = "11111111" };
+        var labels = new Dictionary<string, string> { ["reeve-iot.dev/workload-instance"] = "11111111" };
         if (nodeLabel is not null)
         {
-            labels["reeve.io/scan-node"] = nodeLabel;
+            labels["reeve-iot.dev/scan-node"] = nodeLabel;
         }
 
         return new V1Job

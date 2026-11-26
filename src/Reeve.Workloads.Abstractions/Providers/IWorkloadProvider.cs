@@ -6,7 +6,7 @@ using Reeve.Workloads.Abstractions.Network;
 namespace Reeve.Workloads.Abstractions.Providers;
 
 /// <summary>The runtime-provider SPI every provider implements so the reconciler/lifecycle stay provider-agnostic.
-/// Keys adoption/drift/teardown on the <c>reeve.io/workload-instance</c> label, never reconstructed names; must not throw for a merely-unreachable provider.</summary>
+/// Keys adoption/drift/teardown on the <c>reeve-iot.dev/workload-instance</c> label, never reconstructed names; must not throw for a merely-unreachable provider.</summary>
 public interface IWorkloadProvider
 {
     /// <summary>This provider's id and declared traits. The library asks the DESCRIPTOR what a provider does

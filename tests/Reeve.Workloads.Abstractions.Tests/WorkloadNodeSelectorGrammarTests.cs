@@ -32,7 +32,7 @@ public sealed class WorkloadNodeSelectorGrammarTests
     [InlineData("a-b_c.d")]
     [InlineData("")]
     public void A_legal_label_value_passes(string value) =>
-        Problems(("reeve.io/has-zwave-radio", value)).Should().BeEmpty();
+        Problems(("reeve-iot.dev/has-zwave-radio", value)).Should().BeEmpty();
 
     [Theory]
     [InlineData("'true'")]
@@ -44,17 +44,17 @@ public sealed class WorkloadNodeSelectorGrammarTests
     [InlineData("gpu=true")]
     [InlineData("true\n")]
     public void An_illegal_label_value_is_refused(string value) =>
-        Problems(("reeve.io/has-zwave-radio", value)).Should().ContainSingle();
+        Problems(("reeve-iot.dev/has-zwave-radio", value)).Should().ContainSingle();
 
     [Fact]
     public void A_value_over_63_characters_is_refused() =>
-        Problems(("reeve.io/x", new string('a', 64))).Should().ContainSingle(
+        Problems(("reeve-iot.dev/x", new string('a', 64))).Should().ContainSingle(
             "Kubernetes caps a label value at 63 characters, and the API server would reject the apply");
 
     [Theory]
     [InlineData("kubernetes.io/hostname")]
     [InlineData("intel.feature.node.kubernetes.io/gpu")]
-    [InlineData("reeve.io/has-zwave-radio")]
+    [InlineData("reeve-iot.dev/has-zwave-radio")]
     [InlineData("bare-name")]
     public void A_legal_label_key_passes(string key) =>
         Problems((key, "true")).Should().BeEmpty();
@@ -68,7 +68,7 @@ public sealed class WorkloadNodeSelectorGrammarTests
     [InlineData("-leading/gpu")]
     [InlineData("intel io/gpu")]
     [InlineData("gpu\n")]
-    [InlineData("reeve.io\n/gpu")]
+    [InlineData("reeve-iot.dev\n/gpu")]
     public void An_illegal_label_key_is_refused(string key) =>
         Problems((key, "true")).Should().ContainSingle();
 
@@ -77,7 +77,7 @@ public sealed class WorkloadNodeSelectorGrammarTests
     {
         var problems = Problems(
             ("intel.feature.node.kubernetes.io/gpu", "'true'"),
-            ("reeve.io/rack", "\"a\""),
+            ("reeve-iot.dev/rack", "\"a\""),
             ("kubernetes.io/hostname", "worker02"));
 
         problems.Should().HaveCount(2);
