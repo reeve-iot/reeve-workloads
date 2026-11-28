@@ -16,7 +16,7 @@
     <PackageVersion Include="Reeve.Pipeline" Version="1.0.1" />
     <PackageVersion Include="Reeve.EntityFrameworkCore.AdvisoryLocks" Version="1.0.1" />
     <PackageVersion Include="Docker.DotNet.Enhanced" Version="4.4.1" />
-    <PackageVersion Include="KubernetesClient" Version="21.0.8" />
+    <PackageVersion Include="KubernetesClient" Version="21.0.41" />
     <PackageVersion Include="Testcontainers.PostgreSql" Version="4.17.0" />
     <PackageVersion Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="11.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.DataProtection" Version="11.0.0" />
